@@ -3,7 +3,7 @@
 import Link from "next/link";
 import styled from "styled-components";
 import Icon from "@/components/ui/Icon";
-import { rephraseAmount } from "@/lib/utils";
+import { formatAmount } from "@/lib/utils";
 import { Transactions } from "@/types/Transactions";
 
 export default function HorizontalRow({ id, category, name, type, amount }: Transactions) {
@@ -11,7 +11,7 @@ export default function HorizontalRow({ id, category, name, type, amount }: Tran
 		<StyledLink href={`/transaction/${id}`} aria-label={`Got to ${name} transaction`}>
 			<Icon icon={category} />
 			<StyledParagraph>{name}</StyledParagraph>
-			{type === "Expense" ? <StyledData value={"-" + amount}>-$ {rephraseAmount(amount)}</StyledData> : <StyledDataHighlighted value={amount}>$ {rephraseAmount(amount)}</StyledDataHighlighted>}
+			{type === "Expense" ? <StyledData value={amount}>{formatAmount(amount)}</StyledData> : <StyledDataHighlighted value={amount}>{formatAmount(amount)}</StyledDataHighlighted>}
 		</StyledLink>
 	);
 }

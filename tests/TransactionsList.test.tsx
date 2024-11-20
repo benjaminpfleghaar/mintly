@@ -23,7 +23,7 @@ describe("Each transaction listing includes a category, a name and the amount", 
 	const transaction = {
 		id: "1",
 		name: "Whole Mart",
-		amount: 52.3,
+		amount: -52.3,
 		category: "Groceries",
 		type: "Expense",
 		date: "2024-09-05",
@@ -41,7 +41,7 @@ describe("Each transaction listing includes a category, a name and the amount", 
 	});
 	test("Render amount (52.30)", () => {
 		render(<HorizontalRow {...transaction} />);
-		const amount = screen.getByText(/52.3/i);
+		const amount = screen.getByText(/52.30/i);
 		expect(amount).toBeInTheDocument();
 	});
 });

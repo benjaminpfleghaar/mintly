@@ -1,14 +1,14 @@
 "use client";
 
 import styled from "styled-components";
-import { rephraseDate } from "@/lib/utils";
+import { formatDate } from "@/lib/utils";
 
 export default function Table({ date, children }: { date?: string; children: React.ReactNode }) {
 	return (
 		<>
 			{date && (
 				<StyledHeadline>
-					<time dateTime={date}>{rephraseDate(date)}</time>
+					<time dateTime={date}>{formatDate(date)}</time>
 				</StyledHeadline>
 			)}
 			<StyledList>{children}</StyledList>

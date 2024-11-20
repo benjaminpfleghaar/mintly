@@ -1,16 +1,16 @@
 "use client";
 
 import styled from "styled-components";
-import { rephraseAmount } from "@/lib/utils";
 import { Transactions } from "@/types/Transactions";
+import { formatAmount, getTotalTransactionsAmount } from "@/lib/utils";
 
 export default function Balance({ transactions }: { transactions: Transactions[] }) {
-	const transactionsAmount = transactions.length === 0 ? 0 : transactions.reduce((result, transaction) => result + transaction.amount, 0);
+	const transactionsAmount = getTotalTransactionsAmount(transactions);
 
 	return (
 		<StyledSection>
 			<StyledHeadline>Total balance</StyledHeadline>
-			<StyledData value={transactionsAmount}>$ {rephraseAmount(transactionsAmount)}</StyledData>
+			<StyledData value={transactionsAmount}>{formatAmount(transactionsAmount)}</StyledData>
 		</StyledSection>
 	);
 }
