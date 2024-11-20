@@ -12,7 +12,7 @@ export function formatDate(date: string) {
 // -99.5 -> -$ 99.50
 export function formatAmount(amount: number) {
 	const absAmount = Math.abs(amount);
-	return (amount < 0 ? "-$ " : "$ ") + absAmount.toFixed(2);
+	return `${amount < 0 ? "-$" : "&"} ${absAmount.toFixed(2)}`;
 }
 
 // Sum of all transactions (return 0 of empty)
