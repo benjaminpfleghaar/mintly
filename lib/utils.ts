@@ -9,7 +9,7 @@ export function formatDate(date: string) {
 	return `${days[newDate.getDay()]}, ${newDate.getDate()} ${months[newDate.getMonth()]}  ${newDate.getFullYear()}`;
 }
 
-// // -99.5 -> -$ 99.50
+// // -99.5 -> -$99.50
 // export function formatAmount(amount: number) {
 // 	const absAmount = Math.abs(amount);
 // 	return `${amount < 0 ? "-$" : "$"} ${absAmount.toFixed(2)}`;
@@ -28,7 +28,12 @@ export function getTotalTransactionsAmount(transactions: Transactions[]) {
 
 // Sort and group transactions by date
 export function getGroupedTransactions(transactions: Transactions[]) {
-	const transactionsSortedByDate = transactions.toSorted((a, b) => compareDates(a.date, b.date));
+	const transactionsSortedByDate = transactions.toSorted((a, b) => {
+		const dateA = new Date(a.date).getTime();
+		const dateB = new Date(b.date).getTime();
+
+		return dateA - dateB;
+	});
 	return transactionsSortedByDate.reduce<{ [key: string]: Transactions[] }>(
 		(result, transaction) => ({
 			...result,
@@ -36,12 +41,4 @@ export function getGroupedTransactions(transactions: Transactions[]) {
 		}),
 		{}
 	);
-}
-
-// 2024-09-05 < 2024-09-10
-function compareDates(a: string, b: string) {
-	const dateA = new Date(a).getTime();
-	const dateB = new Date(b).getTime();
-
-	return dateA - dateB;
 }
