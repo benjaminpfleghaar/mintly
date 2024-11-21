@@ -9,15 +9,21 @@ export function formatDate(date: string) {
 	return `${days[newDate.getDay()]}, ${newDate.getDate()} ${months[newDate.getMonth()]}  ${newDate.getFullYear()}`;
 }
 
-// -99.5 -> -$ 99.50
+// // -99.5 -> -$ 99.50
+// export function formatAmount(amount: number) {
+// 	const absAmount = Math.abs(amount);
+// 	return `${amount < 0 ? "-$" : "$"} ${absAmount.toFixed(2)}`;
+// }
 export function formatAmount(amount: number) {
-	const absAmount = Math.abs(amount);
-	return `${amount < 0 ? "-$" : "$"} ${absAmount.toFixed(2)}`;
+	return new Intl.NumberFormat("en-US", {
+		style: "currency",
+		currency: "USD",
+	}).format(amount);
 }
 
-// Sum of all transactions (return 0 of empty)
+// Sum of all transactions (return 0 if empty)
 export function getTotalTransactionsAmount(transactions: Transactions[]) {
-	return transactions.length === 0 ? 0 : transactions.reduce((result, transaction) => result + transaction.amount, 0);
+	return transactions.reduce((result, transaction) => result + transaction.amount, 0) || 0;
 }
 
 // Sort and group transactions by date

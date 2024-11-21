@@ -45,6 +45,7 @@ The complete styleguide including fonts, colors, icons and general design princi
 
 ## Backlog
 
+-   Change currency
 -   Provide privacy mode
 -   Create 404/Error pages
 -   Mark recurring payments
