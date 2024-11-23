@@ -23,23 +23,15 @@ export function getTotalTransactionsAmount(transactions: Transactions[]) {
 }
 
 // Sort transactions by date 2024-09-05 < 2024-09-10
-export function getSortedTransactions(transactions: Transactions[]) {
-	return transactions.toSorted((a, b) => {
-		const dateA = new Date(a.date).getTime();
-		const dateB = new Date(b.date).getTime();
-
-		return dateA - dateB;
-	});
-}
-
-// Group transactions by date 2024-09-05: [{...}, {...}, ...]
+// and group them by date 2024-09-05: [{...}, {...}, ...]
 export function getGroupedTransactions(transactions: Transactions[]) {
-	const transactionsSortedByDate = getSortedTransactions(transactions);
-	return transactionsSortedByDate.reduce<{ [key: string]: Transactions[] }>(
-		(result, transaction) => ({
-			...result,
-			[transaction.date]: [...(result[transaction.date] || []), transaction],
-		}),
-		{}
-	);
+	return transactions
+		.toSorted((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime())
+		.reduce<{ [key: string]: Transactions[] }>(
+			(result, transaction) => ({
+				...result,
+				[transaction.date]: [...(result[transaction.date] || []), transaction],
+			}),
+			{}
+		);
 }
