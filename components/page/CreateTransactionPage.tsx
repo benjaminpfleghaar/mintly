@@ -2,11 +2,11 @@
 
 import styled from "styled-components";
 import Header from "@/components/layout/Header";
-import { IconLinkProps } from "@/types/IconLinkProps";
+import { LinkIconProps } from "@/types/LinkIconProps";
 import TransactionForm from "@/components/layout/TransactionForm";
 
 export default function CreateTransactionPage() {
-	const iconOnLeftSide: IconLinkProps = {
+	const iconOnLeftSide: LinkIconProps = {
 		icon: "Back",
 		label: "Back to transactions",
 		href: "/",

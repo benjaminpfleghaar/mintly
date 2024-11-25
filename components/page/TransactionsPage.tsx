@@ -4,14 +4,14 @@ import styled from "styled-components";
 import Header from "@/components/layout/Header";
 import Status from "@/components/layout/Status";
 import Balance from "@/components/layout/Balance";
-import { IconLinkProps } from "@/types/IconLinkProps";
+import { LinkIconProps } from "@/types/LinkIconProps";
 import { useTransactions } from "@/states/useTransactions";
 import TransactionsList from "@/components/layout/TransactionsList";
 
 export default function TransactionsPage() {
 	const { transactions } = useTransactions();
 
-	const iconOnRightSide: IconLinkProps = {
+	const iconOnRightSide: LinkIconProps = {
 		icon: "Add",
 		label: "Add new transaction",
 		href: "/create",

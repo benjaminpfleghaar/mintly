@@ -11,7 +11,7 @@ export default function HorizontalRow({ id, category, name, type, amount }: Tran
 		<StyledLink href={`/transaction/${id}`} aria-label={`Got to ${name} transaction`}>
 			<Icon icon={category} />
 			<StyledParagraph>{name}</StyledParagraph>
-			{type === "Expense" ? <StyledData value={amount}>{formatAmount(amount)}</StyledData> : <StyledDataHighlighted value={amount}>{formatAmount(amount)}</StyledDataHighlighted>}
+			{type === "expense" ? <StyledData value={amount}>{formatAmount(amount)}</StyledData> : <StyledDataHighlighted value={amount}>{formatAmount(amount)}</StyledDataHighlighted>}
 		</StyledLink>
 	);
 }

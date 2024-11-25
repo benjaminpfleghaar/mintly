@@ -11,10 +11,7 @@ export default function Button({ type = "button", onClick, label }: { type?: "bu
 }
 
 const StyledButton = styled.button`
-	display: flex;
-	align-items: center;
 	height: var(--spacing-48);
-	color: var(--color-gray-0);
 	font: var(--font-medium-14);
 	padding: 0 var(--spacing-24);
 	border-radius: var(--spacing-8);

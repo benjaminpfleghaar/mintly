@@ -1,64 +1,38 @@
 "use client";
 
-import { categories } from "@/data/categories";
+import styled from "styled-components";
+import TypeRadio from "@/components/ui/TypeRadio";
+import NameInput from "@/components/ui/NameInput";
+import DateInput from "@/components/ui/DateInput";
+import GhostButton from "@/components/ui/GhostButton";
+import SubmitButton from "@/components/ui/SubmitButton";
+import CategorySelect from "@/components/ui/CategorySelect";
+import AmountInputLarge from "@/components/ui/AmountInputLarge";
 
 export default function TransactionForm() {
 	return (
-		<form>
-			<div className="form-section">
-				<label htmlFor="amount">Amount</label>
-				<input id="amount" type="text" name="amount" placeholder="0.00" />
-				<span className="error-message">This field can&apos;t be empty</span>
-			</div>
-			{/*---*/}
-			<fieldset className="form-section">
-				<button type="button">$50</button>
-				<button type="button">$100</button>
-				<button type="button">$500</button>
-			</fieldset>
-			{/*---*/}
-			<div className="form-section">
-				<label htmlFor="name">Name</label>
-				<input id="name" type="text" name="name" placeholder="Please enter a name" />
-			</div>
-			{/*---*/}
-			<div className="form-section">
-				<label htmlFor="category">Category</label>
-				<select name="category" id="category" defaultValue="Please select a category">
-					<option disabled>Please select a category</option>
-					{categories.map((category) => (
-						<option key={category} value={category}>
-							{category}
-						</option>
-					))}
-				</select>
-			</div>
-			{/*---*/}
-			<fieldset className="form-section">
-				<legend>Type</legend>
-				<div>
-					<label htmlFor="income">
-						<input id="income" type="radio" name="type" value="Income" defaultChecked />
-						Income
-					</label>
-				</div>
-				<div>
-					<label htmlFor="expense">
-						<input id="expense" type="radio" name="type" value="Expense" />
-						Expense
-					</label>
-				</div>
-			</fieldset>
-			{/*---*/}
-			<div className="form-section">
-				<label htmlFor="date">Date</label>
-				<input id="date" type="date" name="date" defaultValue="2024-11-25" />
-			</div>
-			{/*---*/}
-			<div className="form-actions">
-				<button type="submit">Save</button>
-				<button type="button">Cancel</button>
-			</div>
-		</form>
+		<StyledForm>
+			<AmountInputLarge />
+			<NameInput />
+			<CategorySelect />
+			<TypeRadio />
+			<DateInput />
+			<StyledDiv>
+				<SubmitButton onClick={() => console.log("Clicked")} label="Save" />
+				<GhostButton onClick={() => console.log("Clicked")} label="Cancel" />
+			</StyledDiv>
+		</StyledForm>
 	);
 }
+
+const StyledForm = styled.form`
+	display: flex;
+	gap: var(--spacing-16);
+	flex-direction: column;
+`;
+const StyledDiv = styled.div`
+	display: flex;
+	gap: var(--spacing-8);
+	flex-direction: column;
+	margin-top: var(--spacing-8);
+`;

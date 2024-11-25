@@ -1,24 +1,24 @@
 "use client";
 
 import styled from "styled-components";
-import IconLink from "@/components/ui/IconLink";
-import { IconLinkProps } from "@/types/IconLinkProps";
+import LinkIcon from "@/components/ui/LinkIcon";
+import { LinkIconProps } from "@/types/LinkIconProps";
 
 interface HeaderProps {
 	title: string;
-	iconOnLeftSide?: IconLinkProps;
-	iconOnRightSide?: IconLinkProps;
+	iconOnLeftSide?: LinkIconProps;
+	iconOnRightSide?: LinkIconProps;
 }
 
 export default function Header({ title, iconOnLeftSide, iconOnRightSide }: HeaderProps) {
 	return (
 		<StyledHeader>
 			<StyledNav>
-				{iconOnLeftSide && <IconLink href={iconOnLeftSide.href} icon={iconOnLeftSide.icon} label={iconOnLeftSide.label} />}
+				{iconOnLeftSide && <LinkIcon href={iconOnLeftSide.href} icon={iconOnLeftSide.icon} label={iconOnLeftSide.label} />}
 				<StyledHeadline $iconOnLeftSide={iconOnLeftSide} $iconOnRightSide={iconOnRightSide}>
 					{title}
 				</StyledHeadline>
-				{iconOnRightSide && <IconLink href={iconOnRightSide.href} icon={iconOnRightSide.icon} label={iconOnRightSide.label} />}
+				{iconOnRightSide && <LinkIcon href={iconOnRightSide.href} icon={iconOnRightSide.icon} label={iconOnRightSide.label} />}
 			</StyledNav>
 		</StyledHeader>
 	);

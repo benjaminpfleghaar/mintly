@@ -3,7 +3,7 @@
 import styled from "styled-components";
 import Icon from "@/components/ui/Icon";
 import Button from "@/components/ui/Button";
-import ButtonLink from "@/components/ui/ButtonLink";
+import LinkButton from "@/components/ui/LinkButton";
 
 interface statusCasesProps {
 	[key: string]: {
@@ -19,7 +19,7 @@ const statusCases: statusCasesProps = {
 		icon: "Empty",
 		headline: "No transactions available",
 		paragraph: "Start by adding a new one",
-		button: <ButtonLink href="/" label="Create transaction" />,
+		button: <LinkButton href="/" label="Create transaction" />,
 	},
 	search: {
 		icon: "Search",
