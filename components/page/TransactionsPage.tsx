@@ -14,7 +14,7 @@ export default function TransactionsPage() {
 	const iconOnRightSide: IconLinkProps = {
 		icon: "Add",
 		label: "Add new transaction",
-		href: "/",
+		href: "/create",
 	};
 
 	return (

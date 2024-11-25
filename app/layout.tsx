@@ -3,7 +3,7 @@ import GlobalStyles from "@/styles/globals";
 import StyledComponentsRegistry from "@/lib/registry";
 
 export const metadata: Metadata = {
-	title: "Mintly",
+	title: "Transactions",
 	description: "Track, manage, and analyze your expenses and savings.",
 };
 
