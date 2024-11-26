@@ -3,11 +3,11 @@
 import styled from "styled-components";
 import ErrorMessage from "@/components/ui/ErrorMessage";
 
-export default function NameInput({ defaultValue }: { defaultValue?: string }) {
+export default function NameInput({ value }: { value?: string }) {
 	return (
 		<StyledDiv>
 			<StyledLabel htmlFor="name">Name</StyledLabel>
-			<StyledInput id="name" type="text" name="name" defaultValue={defaultValue} placeholder="Please enter a name" aria-describedby="name-error" aria-invalid="true" />
+			<StyledInput id="name" type="text" name="name" defaultValue={value} placeholder="Please enter a name" aria-describedby="name-error" aria-invalid="true" />
 			<ErrorMessage id="name-error" message="Please enter a valid name" />
 		</StyledDiv>
 	);

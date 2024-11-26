@@ -6,7 +6,7 @@ export function formatDate(date: string) {
 	const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 	const newDate = new Date(date);
 
-	return `${days[newDate.getDay()]}, ${newDate.getDate()} ${months[newDate.getMonth()]}  ${newDate.getFullYear()}`;
+	return `${days[newDate.getDay()]}, ${newDate.getDate()} ${months[newDate.getMonth()]} ${newDate.getFullYear()}`;
 }
 
 // -99.5 -> -$99.50

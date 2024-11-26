@@ -2,18 +2,18 @@
 
 import styled from "styled-components";
 
-export default function TypeRadio() {
+export default function TypeRadio({ value = "Income" }: { value?: string }) {
 	return (
 		<StyledDiv>
 			<StyledSpan id="type">Type</StyledSpan>
 			<StyledFieldset aria-labelledby="type">
 				<StyledLabel htmlFor="income">
 					Income
-					<StyledInput id="income" type="radio" name="type" value="income" defaultChecked />
+					<StyledInput id="income" type="radio" name="type" value="Income" defaultChecked={value === "Income"} />
 				</StyledLabel>
 				<StyledLabel htmlFor="expense">
 					Expense
-					<StyledInput id="expense" type="radio" name="type" value="expense" />
+					<StyledInput id="expense" type="radio" name="type" value="Expense" defaultChecked={value === "Expense"} />
 				</StyledLabel>
 			</StyledFieldset>
 		</StyledDiv>

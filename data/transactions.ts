@@ -4,7 +4,7 @@ export const transactions = [
 		name: "Whole Mart",
 		amount: -52.3,
 		category: "Groceries",
-		type: "expense",
+		type: "Expense",
 		date: "2024-09-05",
 	},
 	{
@@ -12,7 +12,7 @@ export const transactions = [
 		name: "Sunset Apartments",
 		amount: -1200.0,
 		category: "Rent",
-		type: "expense",
+		type: "Expense",
 		date: "2024-09-05",
 	},
 	{
@@ -20,7 +20,7 @@ export const transactions = [
 		name: "Tech Corp Salary",
 		amount: 1500.0,
 		category: "Salary",
-		type: "income",
+		type: "Income",
 		date: "2024-09-30",
 	},
 	{
@@ -28,7 +28,7 @@ export const transactions = [
 		name: "Power Utilities",
 		amount: -80.5,
 		category: "Utilities",
-		type: "expense",
+		type: "Expense",
 		date: "2024-09-15",
 	},
 	{
@@ -36,7 +36,7 @@ export const transactions = [
 		name: "City Transit Pass",
 		amount: -25.0,
 		category: "Transportation",
-		type: "expense",
+		type: "Expense",
 		date: "2024-10-10",
 	},
 	{
@@ -44,7 +44,7 @@ export const transactions = [
 		name: "Pure Fitness Gym",
 		amount: -45.0,
 		category: "Health",
-		type: "expense",
+		type: "Expense",
 		date: "2024-10-10",
 	},
 	{
@@ -52,7 +52,7 @@ export const transactions = [
 		name: "Bright Investments",
 		amount: 300.0,
 		category: "Investment",
-		type: "income",
+		type: "Income",
 		date: "2024-10-14",
 	},
 	{
@@ -60,7 +60,7 @@ export const transactions = [
 		name: "Cafe Latte",
 		amount: -12.5,
 		category: "Restaurants",
-		type: "expense",
+		type: "Expense",
 		date: "2024-09-20",
 	},
 	{
@@ -68,7 +68,7 @@ export const transactions = [
 		name: "Life Insurance",
 		amount: -200.0,
 		category: "Insurance",
-		type: "expense",
+		type: "Expense",
 		date: "2024-11-01",
 	},
 	{
@@ -76,7 +76,7 @@ export const transactions = [
 		name: "Health First Clinic",
 		amount: -150.0,
 		category: "Health",
-		type: "expense",
+		type: "Expense",
 		date: "2024-10-22",
 	},
 	{
@@ -84,7 +84,7 @@ export const transactions = [
 		name: "Downtown Bistro",
 		amount: -60.0,
 		category: "Restaurants",
-		type: "expense",
+		type: "Expense",
 		date: "2024-10-05",
 	},
 	{
@@ -92,7 +92,7 @@ export const transactions = [
 		name: "City University",
 		amount: -500.0,
 		category: "Education",
-		type: "expense",
+		type: "Expense",
 		date: "2024-09-30",
 	},
 	{
@@ -100,7 +100,7 @@ export const transactions = [
 		name: "Savings Deposit",
 		amount: 400.0,
 		category: "Savings",
-		type: "income",
+		type: "Income",
 		date: "2024-11-08",
 	},
 	{
@@ -108,7 +108,7 @@ export const transactions = [
 		name: "Grocery Plaza",
 		amount: -35.75,
 		category: "Groceries",
-		type: "expense",
+		type: "Expense",
 		date: "2024-11-03",
 	},
 	{
@@ -116,7 +116,7 @@ export const transactions = [
 		name: "Book Haven",
 		amount: -75.0,
 		category: "Education",
-		type: "expense",
+		type: "Expense",
 		date: "2024-10-18",
 	},
 	{
@@ -124,7 +124,7 @@ export const transactions = [
 		name: "Sunnyday Insurance",
 		amount: -125.0,
 		category: "Insurance",
-		type: "expense",
+		type: "Expense",
 		date: "2024-09-10",
 	},
 	{
@@ -132,7 +132,7 @@ export const transactions = [
 		name: "Green Thumb Nursery",
 		amount: -50.0,
 		category: "Miscellaneous",
-		type: "expense",
+		type: "Expense",
 		date: "2024-09-10",
 	},
 	{
@@ -140,7 +140,7 @@ export const transactions = [
 		name: "Metro Car Service",
 		amount: -75.0,
 		category: "Transportation",
-		type: "expense",
+		type: "Expense",
 		date: "2024-11-12",
 	},
 	{
@@ -148,7 +148,7 @@ export const transactions = [
 		name: "Movie Palace",
 		amount: -20.0,
 		category: "Entertainment",
-		type: "expense",
+		type: "Expense",
 		date: "2024-10-21",
 	},
 	{
@@ -156,7 +156,7 @@ export const transactions = [
 		name: "Fresh Fruits Market",
 		amount: -55.0,
 		category: "Groceries",
-		type: "expense",
+		type: "Expense",
 		date: "2024-11-05",
 	},
 	{
@@ -164,7 +164,7 @@ export const transactions = [
 		name: "Downtown Diner",
 		amount: -47.2,
 		category: "Restaurants",
-		type: "expense",
+		type: "Expense",
 		date: "2024-09-05",
 	},
 	{
@@ -172,7 +172,7 @@ export const transactions = [
 		name: "Quick Stop Groceries",
 		amount: -30.0,
 		category: "Groceries",
-		type: "expense",
+		type: "Expense",
 		date: "2024-11-05",
 	},
 ];

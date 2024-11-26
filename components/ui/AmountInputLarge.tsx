@@ -41,7 +41,6 @@ const StyledInput = styled.input`
 	}
 `;
 const StyledPillDiv = styled.div`
-	border: none;
 	display: flex;
 	gap: var(--spacing-8);
 `;

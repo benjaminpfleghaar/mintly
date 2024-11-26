@@ -3,11 +3,11 @@
 import styled from "styled-components";
 import { categories } from "@/data/categories";
 
-export default function CategorySelect({ defaultValue }: { defaultValue?: string }) {
+export default function CategorySelect({ value }: { value?: string }) {
 	return (
 		<StyledDiv>
 			<StyledLabel htmlFor="category">Category</StyledLabel>
-			<StyledSelect name="category" id="category" defaultValue={defaultValue}>
+			<StyledSelect name="category" id="category" defaultValue={value}>
 				<option disabled>Please select a category</option>
 				{categories.map((category) => (
 					<option key={category} value={category}>
