@@ -2,9 +2,9 @@
 
 import styled from "styled-components";
 
-export default function Button({ type = "button", onClick, label }: { type?: "button" | "submit"; onClick: () => void; label: string }) {
+export default function OutlineButton({ onClick, label }: { onClick: () => void; label: string }) {
 	return (
-		<StyledButton type={type} onClick={onClick}>
+		<StyledButton type="button" onClick={onClick}>
 			{label}
 		</StyledButton>
 	);

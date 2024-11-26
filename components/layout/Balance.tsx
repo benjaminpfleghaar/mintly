@@ -18,7 +18,7 @@ export default function Balance({ transactions }: { transactions: Transactions[]
 const StyledSection = styled.section`
 	padding: var(--spacing-16);
 	border-radius: var(--spacing-8);
-	background: var(--color-green-100) url("/images/background.png") center right / contain no-repeat;
+	background: var(--color-green-100) url("/images/Background.png") center right / contain no-repeat;
 `;
 const StyledHeadline = styled.h2`
 	color: var(--color-gray-100);

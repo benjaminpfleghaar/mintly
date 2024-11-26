@@ -2,8 +2,7 @@
 
 import styled from "styled-components";
 import Icon from "@/components/ui/Icon";
-import Button from "@/components/ui/Button";
-import LinkButton from "@/components/ui/LinkButton";
+import OutlineButton from "@/components/ui/OutlineButton";
 
 interface statusCasesProps {
 	[key: string]: {
@@ -19,7 +18,7 @@ const statusCases: statusCasesProps = {
 		icon: "Empty",
 		headline: "No transactions available",
 		paragraph: "Start by adding a new one",
-		button: <LinkButton href="/" label="Create transaction" />,
+		button: <OutlineButton onClick={() => console.log("Create transaction")} label="Create transaction" />,
 	},
 	search: {
 		icon: "Search",
@@ -30,7 +29,7 @@ const statusCases: statusCasesProps = {
 		icon: "Filter",
 		headline: "No transactions in this category",
 		paragraph: "Try a different or reset your filter",
-		button: <Button onClick={() => console.log("Clicked")} label="Reset filter" />,
+		button: <OutlineButton onClick={() => console.log("Reset filter")} label="Reset filter" />,
 	},
 } as const;
 
