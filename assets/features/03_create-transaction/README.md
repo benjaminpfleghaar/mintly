@@ -17,8 +17,8 @@ so that **I can keep track of my expenses and income effectively.**
 -   The create transaction form has a clear header indicating its purpose
 -   The form includes labeled, mandatory fields for:
     -   Transaction Amount
+    -   Transaction Name
     -   Transaction Category
-    -   Transaction Type
     -   Transaction Date
 -   The amount field displays the placeholder text "0.00" when the user has not entered any value
 -   The category field uses a dropdown menu with existing categories, including a default option, “Please select a category”, requiring user selection
