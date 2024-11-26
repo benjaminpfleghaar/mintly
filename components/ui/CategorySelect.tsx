@@ -2,13 +2,12 @@
 
 import styled from "styled-components";
 import { categories } from "@/data/categories";
-import ErrorMessage from "@/components/ui/ErrorMessage";
 
-export default function CategorySelect() {
+export default function CategorySelect({ defaultValue }: { defaultValue?: string }) {
 	return (
 		<StyledDiv>
 			<StyledLabel htmlFor="category">Category</StyledLabel>
-			<StyledSelect name="category" id="category" defaultValue="Please select a category" aria-describedby="category-error" aria-invalid="true">
+			<StyledSelect name="category" id="category" defaultValue={defaultValue}>
 				<option disabled>Please select a category</option>
 				{categories.map((category) => (
 					<option key={category} value={category}>
@@ -16,7 +15,6 @@ export default function CategorySelect() {
 					</option>
 				))}
 			</StyledSelect>
-			<ErrorMessage id="category-error" message="Please select a category" />
 		</StyledDiv>
 	);
 }
