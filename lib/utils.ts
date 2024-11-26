@@ -26,7 +26,7 @@ export function getTotalTransactionsAmount(transactions: Transactions[]) {
 // and group them by date 2024-09-05: [{...}, {...}, ...]
 export function getGroupedTransactions(transactions: Transactions[]) {
 	return transactions
-		.toSorted((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime())
+		.toSorted((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
 		.reduce<{ [key: string]: Transactions[] }>(
 			(result, transaction) => ({
 				...result,

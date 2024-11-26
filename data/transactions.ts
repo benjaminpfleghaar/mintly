@@ -101,7 +101,7 @@ export const transactions = [
 		amount: 400.0,
 		category: "Savings",
 		type: "income",
-		date: "2024-11-12",
+		date: "2024-11-08",
 	},
 	{
 		id: "14",
@@ -141,7 +141,7 @@ export const transactions = [
 		amount: -75.0,
 		category: "Transportation",
 		type: "expense",
-		date: "2024-11-08",
+		date: "2024-11-12",
 	},
 	{
 		id: "19",
