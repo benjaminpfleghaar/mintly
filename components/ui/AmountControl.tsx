@@ -1,7 +1,7 @@
 "use client";
 
 import styled from "styled-components";
-import Pill from "@/components/ui/Pill";
+import PillButton from "@/components/ui/PillButton";
 import ErrorMessage from "@/components/ui/ErrorMessage";
 
 export default function AmountControl() {
@@ -13,9 +13,9 @@ export default function AmountControl() {
 				<ErrorMessage id="amount-error" message="Please enter a valid number" />
 			</StyledInputDiv>
 			<StyledPillDiv>
-				<Pill onClick={() => console.log("$50")} label="$50" />
-				<Pill onClick={() => console.log("$100")} label="$100" />
-				<Pill onClick={() => console.log("$500")} label="$500" />
+				<PillButton onClick={() => console.log("$50")} label="$50" />
+				<PillButton onClick={() => console.log("$100")} label="$100" />
+				<PillButton onClick={() => console.log("$500")} label="$500" />
 			</StyledPillDiv>
 		</>
 	);

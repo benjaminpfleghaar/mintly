@@ -2,7 +2,7 @@
 
 import styled from "styled-components";
 
-export default function Pill({ onClick, label }: { onClick: () => void; label: string }) {
+export default function PillButton({ onClick, label }: { onClick: () => void; label: string }) {
 	return (
 		<StyledButton type="button" onClick={onClick}>
 			{label}

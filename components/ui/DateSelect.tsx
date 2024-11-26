@@ -1,13 +1,19 @@
 "use client";
 
 import styled from "styled-components";
+import { parseDate } from "@/lib/utils";
+// import { ChangeEvent, useState } from "react";
 import ErrorMessage from "@/components/ui/ErrorMessage";
 
 export default function DateSelect({ value }: { value?: string }) {
-	const currentDate = new Date();
-	const day = Number(value?.split("-")[2]) || currentDate.getDate();
-	const month = Number(value?.split("-")[1]) || currentDate.getMonth() + 1;
-	const year = Number(value?.split("-")[0]) || currentDate.getFullYear();
+	const { day, month, year } = parseDate(value);
+
+	// const [date, setDate] = useState<DateStateModel>(initialDate);
+
+	// function handleChange(event: ChangeEvent<HTMLSelectElement>) {
+	// 	const { name, value } = event.target;
+	// 	setDate((prevDate) => ({ ...prevDate, [name]: Number(value) }));
+	// }
 
 	return (
 		<StyledDiv>
