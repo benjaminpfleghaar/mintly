@@ -3,7 +3,7 @@
 import styled from "styled-components";
 import TypeRadio from "@/components/ui/TypeRadio";
 import NameInput from "@/components/ui/NameInput";
-import DateInput from "@/components/ui/DateInput";
+import DateSelect from "@/components/ui/DateSelect";
 import GhostButton from "@/components/ui/GhostButton";
 import SubmitButton from "@/components/ui/SubmitButton";
 import CategorySelect from "@/components/ui/CategorySelect";
@@ -16,10 +16,10 @@ export default function TransactionForm() {
 			<NameInput />
 			<CategorySelect />
 			<TypeRadio />
-			<DateInput />
+			<DateSelect />
 			<StyledDiv>
-				<SubmitButton onClick={() => console.log("Clicked")} label="Save" />
-				<GhostButton onClick={() => console.log("Clicked")} label="Cancel" />
+				<SubmitButton onClick={() => console.log("Save")} label="Save" disabled />
+				<GhostButton onClick={() => console.log("Cancel")} label="Cancel" />
 			</StyledDiv>
 		</StyledForm>
 	);

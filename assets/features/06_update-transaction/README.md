@@ -8,7 +8,7 @@ so that **they reflect the most accurate and relevant information.**
 
 ## Assets
 
-| Wireframe               | Layout               | Components               |
+|        Wireframe        |        Layout        |        Components        |
 | :---------------------: | :------------------: | :----------------------: |
 | [Link](./wireframe.png) | [Link](./layout.png) | [Link](./components.png) |
 

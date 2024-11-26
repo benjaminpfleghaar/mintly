@@ -7,21 +7,21 @@ import ErrorMessage from "@/components/ui/ErrorMessage";
 export default function AmountInputLarge() {
 	return (
 		<>
-			<StyledDiv>
+			<StyledInputDiv>
 				<StyledLabel htmlFor="amount">Amount</StyledLabel>
 				<StyledInput id="amount" type="text" name="amount" placeholder="0.00" />
 				<ErrorMessage />
-			</StyledDiv>
-			<StyledFieldset>
+			</StyledInputDiv>
+			<StyledPillDiv>
 				<Pill onClick={() => console.log("$50")} label="$50" />
 				<Pill onClick={() => console.log("$100")} label="$100" />
 				<Pill onClick={() => console.log("$500")} label="$500" />
-			</StyledFieldset>
+			</StyledPillDiv>
 		</>
 	);
 }
 
-const StyledDiv = styled.div`
+const StyledInputDiv = styled.div`
 	display: flex;
 	flex-direction: column;
 `;
@@ -40,7 +40,7 @@ const StyledInput = styled.input`
 		color: var(--color-gray-50);
 	}
 `;
-const StyledFieldset = styled.fieldset`
+const StyledPillDiv = styled.div`
 	border: none;
 	display: flex;
 	gap: var(--spacing-8);

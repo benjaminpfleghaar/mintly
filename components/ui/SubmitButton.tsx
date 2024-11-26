@@ -2,9 +2,9 @@
 
 import styled from "styled-components";
 
-export default function SubmitButton({ onClick, label }: { onClick: () => void; label: string }) {
+export default function SubmitButton({ onClick, label, disabled }: { onClick: () => void; label: string; disabled?: boolean }) {
 	return (
-		<StyledButton type="submit" onClick={onClick}>
+		<StyledButton type="submit" onClick={onClick} disabled={disabled}>
 			{label}
 		</StyledButton>
 	);
@@ -17,4 +17,11 @@ const StyledButton = styled.button`
 	padding: 0 var(--spacing-24);
 	border-radius: var(--spacing-8);
 	background-color: var(--color-gray-0);
+
+	&:disabled {
+		cursor: default;
+		color: var(--color-gray-50);
+		background-color: var(--color-gray-90);
+		border: 1px solid var(--color-gray-80);
+	}
 `;

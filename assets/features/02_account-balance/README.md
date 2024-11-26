@@ -8,7 +8,7 @@ so that **I can quickly understand my overall financial situation.**
 
 ## Assets
 
-| Wireframe               | Layout               | Components               |
+|        Wireframe        |        Layout        |        Components        |
 | :---------------------: | :------------------: | :----------------------: |
 | [Link](./wireframe.png) | [Link](./layout.png) | [Link](./components.png) |
 

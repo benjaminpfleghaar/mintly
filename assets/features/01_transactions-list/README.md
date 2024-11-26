@@ -8,7 +8,7 @@ so that **I can easily track my spending and income to manage my finances.**
 
 ## Assets
 
-| Wireframe               | Layout               | Components               |
+|        Wireframe        |        Layout        |        Components        |
 | :---------------------: | :------------------: | :----------------------: |
 | [Link](./wireframe.png) | [Link](./layout.png) | [Link](./components.png) |
 
