@@ -4,7 +4,7 @@ import styled from "styled-components";
 import Icon from "@/components/ui/Icon";
 import OutlineButton from "@/components/ui/OutlineButton";
 
-interface statusCasesProps {
+interface StatusCasesProps {
 	[key: string]: {
 		icon: "Empty" | "Filter" | "Search";
 		headline: string;
@@ -13,7 +13,7 @@ interface statusCasesProps {
 	};
 }
 
-const statusCases: statusCasesProps = {
+const statusCases: StatusCasesProps = {
 	empty: {
 		icon: "Empty",
 		headline: "No transactions available",

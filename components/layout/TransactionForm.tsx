@@ -6,13 +6,13 @@ import NameInput from "@/components/ui/NameInput";
 import DateSelect from "@/components/ui/DateSelect";
 import GhostButton from "@/components/ui/GhostButton";
 import SubmitButton from "@/components/ui/SubmitButton";
+import AmountControl from "@/components/ui/AmountControl";
 import CategorySelect from "@/components/ui/CategorySelect";
-import AmountInputLarge from "@/components/ui/AmountInputLarge";
 
 export default function TransactionForm() {
 	return (
 		<StyledForm>
-			<AmountInputLarge />
+			<AmountControl />
 			<NameInput />
 			<CategorySelect />
 			<TypeRadio />

@@ -4,7 +4,7 @@ import styled from "styled-components";
 import Pill from "@/components/ui/Pill";
 import ErrorMessage from "@/components/ui/ErrorMessage";
 
-export default function AmountInputLarge() {
+export default function AmountControl() {
 	return (
 		<>
 			<StyledInputDiv>
