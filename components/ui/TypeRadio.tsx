@@ -19,6 +19,7 @@ export default function TypeRadio({ value = "Income" }: { value?: string }) {
 		</StyledDiv>
 	);
 }
+
 const StyledDiv = styled.div`
 	display: flex;
 	gap: var(--spacing-8);
