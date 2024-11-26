@@ -1,25 +1,27 @@
 "use client";
 
 import styled from "styled-components";
+import ErrorMessage from "@/components/ui/ErrorMessage";
 
 export default function DateSelect() {
 	return (
 		<StyledDiv>
 			<StyledSpan id="date">Date</StyledSpan>
 			<StyledFieldset aria-labelledby="date">
-				<StyledSelect name="day" aria-label="Day" defaultValue="Day">
+				<StyledSelect name="day" aria-label="Day" defaultValue="Day" aria-describedby="date-error" aria-invalid="true">
 					<option disabled>Day</option>
 					<option>1</option>
 				</StyledSelect>
-				<StyledSelect name="month" aria-label="Month" defaultValue="Month">
+				<StyledSelect name="month" aria-label="Month" defaultValue="Month" aria-describedby="date-error" aria-invalid="true">
 					<option disabled>Month</option>
 					<option>1</option>
 				</StyledSelect>
-				<StyledSelect name="year" aria-label="Year" defaultValue="Year">
+				<StyledSelect name="year" aria-label="Year" defaultValue="Year" aria-describedby="date-error" aria-invalid="true">
 					<option disabled>Year</option>
 					<option>1</option>
 				</StyledSelect>
 			</StyledFieldset>
+			<ErrorMessage id="date-error" message="Please select a date" />
 		</StyledDiv>
 	);
 }

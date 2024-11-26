@@ -9,8 +9,8 @@ export default function AmountInputLarge() {
 		<>
 			<StyledInputDiv>
 				<StyledLabel htmlFor="amount">Amount</StyledLabel>
-				<StyledInput id="amount" type="text" name="amount" placeholder="0.00" />
-				<ErrorMessage />
+				<StyledInput id="amount" type="text" name="amount" placeholder="0.00" aria-describedby="amount-error" aria-invalid="true" />
+				<ErrorMessage id="amount-error" message="Please enter a valid number" />
 			</StyledInputDiv>
 			<StyledPillDiv>
 				<Pill onClick={() => console.log("$50")} label="$50" />

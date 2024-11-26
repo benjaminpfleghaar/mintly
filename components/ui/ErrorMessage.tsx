@@ -3,11 +3,11 @@
 import Image from "next/image";
 import styled from "styled-components";
 
-export default function ErrorMessage() {
+export default function ErrorMessage({ id, message }: { id: string; message: string }) {
 	return (
-		<StyledSpan>
+		<StyledSpan id={id} role="alert">
 			<Image src="/images/Alert.svg" width={20} height={20} alt="" />
-			This field can&apos;t be empty
+			{message}
 		</StyledSpan>
 	);
 }

@@ -7,8 +7,8 @@ export default function NameInput({ defaultValue }: { defaultValue?: string }) {
 	return (
 		<StyledDiv>
 			<StyledLabel htmlFor="name">Name</StyledLabel>
-			<StyledInput id="name" type="text" name="name" defaultValue={defaultValue} placeholder="Please enter a name" />
-			<ErrorMessage />
+			<StyledInput id="name" type="text" name="name" defaultValue={defaultValue} placeholder="Please enter a name" aria-describedby="name-error" aria-invalid="true" />
+			<ErrorMessage id="name-error" message="Please enter a valid name" />
 		</StyledDiv>
 	);
 }
