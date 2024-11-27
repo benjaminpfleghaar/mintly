@@ -3,7 +3,7 @@ import { Transactions } from "@/types/Transactions";
 
 // 2024-09-05 -> Thu, 5 September 2024
 export function formatDate(date: string): string {
-	const days = ["Sun", "Mon", "Tue", "Wedn", "Thu", "Fri", "Sat"];
+	const days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 	const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 	const newDate = new Date(date);
 

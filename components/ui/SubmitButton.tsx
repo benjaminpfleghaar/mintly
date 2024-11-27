@@ -2,9 +2,9 @@
 
 import styled from "styled-components";
 
-export default function SubmitButton({ onClick, label, disabled }: { onClick: () => void; label: string; disabled?: boolean }) {
+export default function SubmitButton({ label, disabled }: { label: string; disabled?: boolean }) {
 	return (
-		<StyledButton type="submit" onClick={onClick} disabled={disabled}>
+		<StyledButton type="submit" disabled={disabled}>
 			{label}
 		</StyledButton>
 	);

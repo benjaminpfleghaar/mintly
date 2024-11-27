@@ -9,7 +9,7 @@ export default function DateSelect({ value }: { value?: string }) {
 
 	const days = Array.from({ length: 31 }).map((_, index) => index + 1);
 	const months = Array.from({ length: 12 }).map((_, index) => index + 1);
-	const years = Array.from({ length: 10 }).map((_, index) => 2015 + index);
+	const years = Array.from({ length: 10 }).map((_, index) => 2024 - index);
 
 	return (
 		<StyledDiv>

@@ -70,6 +70,7 @@ The application uses _Next.js_ as it's foundation.
 -   react-dom
 -   styled-components
 -   zustand
+-   nanoid
 -   jest
 
 ## Tech Stack
