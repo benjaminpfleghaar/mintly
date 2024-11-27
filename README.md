@@ -1,6 +1,6 @@
 # Mintly
 
-This app project is a personal exercise in test-driven development, centered on mastering CRUD operations. Designed as a learning project, it follows a structured process where each feature is developed independently to ensure a modular and maintainable codebase. The development process includes:
+This app project is a personal exercise in feature-driven development, centered on mastering CRUD operations. Designed as a learning project, it follows a structured process where each feature is developed independently to ensure a modular and maintainable codebase. The development process includes:
 
 1. Defining a user story
 2. Creating a wireframe
