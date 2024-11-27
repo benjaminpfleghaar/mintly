@@ -46,6 +46,7 @@ export function parseDate(value?: string): DateModel {
 			month: currentDate.getMonth() + 1,
 			year: currentDate.getFullYear(),
 		};
+
 	const [year, month, day] = value.split("-").map(Number);
 	return { day, month, year };
 }

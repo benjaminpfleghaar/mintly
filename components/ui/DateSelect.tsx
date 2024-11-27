@@ -2,18 +2,14 @@
 
 import styled from "styled-components";
 import { parseDate } from "@/lib/utils";
-// import { ChangeEvent, useState } from "react";
 import ErrorMessage from "@/components/ui/ErrorMessage";
 
 export default function DateSelect({ value }: { value?: string }) {
 	const { day, month, year } = parseDate(value);
 
-	// const [date, setDate] = useState<DateStateModel>(initialDate);
-
-	// function handleChange(event: ChangeEvent<HTMLSelectElement>) {
-	// 	const { name, value } = event.target;
-	// 	setDate((prevDate) => ({ ...prevDate, [name]: Number(value) }));
-	// }
+	const days = Array.from({ length: 31 }).map((_, index) => index + 1);
+	const months = Array.from({ length: 12 }).map((_, index) => index + 1);
+	const years = Array.from({ length: 10 }).map((_, index) => 2015 + index);
 
 	return (
 		<StyledDiv>
@@ -21,66 +17,21 @@ export default function DateSelect({ value }: { value?: string }) {
 			<StyledFieldset aria-labelledby="date">
 				<StyledSelect name="day" aria-label="Day" defaultValue={day} aria-describedby="date-error" aria-invalid="true">
 					<option disabled>Please select a day</option>
-					<option>1</option>
-					<option>2</option>
-					<option>3</option>
-					<option>4</option>
-					<option>5</option>
-					<option>6</option>
-					<option>7</option>
-					<option>8</option>
-					<option>9</option>
-					<option>10</option>
-					<option>11</option>
-					<option>12</option>
-					<option>13</option>
-					<option>14</option>
-					<option>15</option>
-					<option>16</option>
-					<option>17</option>
-					<option>18</option>
-					<option>19</option>
-					<option>20</option>
-					<option>21</option>
-					<option>22</option>
-					<option>23</option>
-					<option>24</option>
-					<option>25</option>
-					<option>26</option>
-					<option>27</option>
-					<option>28</option>
-					<option>29</option>
-					<option>30</option>
-					<option>31</option>
+					{days.map((day) => (
+						<option key={day}>{day}</option>
+					))}
 				</StyledSelect>
 				<StyledSelect name="month" aria-label="Month" defaultValue={month} aria-describedby="date-error" aria-invalid="true">
 					<option disabled>Please select a month</option>
-					<option>1</option>
-					<option>2</option>
-					<option>3</option>
-					<option>4</option>
-					<option>5</option>
-					<option>6</option>
-					<option>7</option>
-					<option>8</option>
-					<option>9</option>
-					<option>10</option>
-					<option>11</option>
-					<option>12</option>
+					{months.map((month) => (
+						<option key={month}>{month}</option>
+					))}
 				</StyledSelect>
 				<StyledSelect name="year" aria-label="Year" defaultValue={year} aria-describedby="date-error" aria-invalid="true">
 					<option disabled>Please select a year</option>
-					<option>2024</option>
-					<option>2023</option>
-					<option>2022</option>
-					<option>2021</option>
-					<option>2020</option>
-					<option>2019</option>
-					<option>2018</option>
-					<option>2017</option>
-					<option>2016</option>
-					<option>2015</option>
-					<option>2014</option>
+					{years.map((year) => (
+						<option key={year}>{year}</option>
+					))}
 				</StyledSelect>
 			</StyledFieldset>
 			<ErrorMessage id="date-error" message="Please select a date" />
