@@ -54,7 +54,7 @@ const StyledFieldset = styled.fieldset`
 	gap: var(--spacing-8);
 `;
 const StyledSelect = styled.select`
-	flex-grow: 1;
+	width: 100%;
 	height: var(--spacing-48);
 	font: var(--font-regular-14);
 	padding-left: var(--spacing-16);
