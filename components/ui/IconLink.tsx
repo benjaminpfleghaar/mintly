@@ -3,9 +3,9 @@
 import Link from "next/link";
 import Image from "next/image";
 import styled from "styled-components";
-import { LinkIconProps } from "@/types/LinkIconProps";
+import { IconLinkProps } from "@/types/IconLinkProps";
 
-export default function LinkIcon({ href, icon, label }: LinkIconProps) {
+export default function IconLink({ href, icon, label }: IconLinkProps) {
 	return (
 		<StyledLink href={href} aria-label={label}>
 			<Image src={`/images/${icon}.svg`} width={20} height={20} alt="" />
