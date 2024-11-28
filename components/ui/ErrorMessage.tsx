@@ -5,7 +5,7 @@ import styled from "styled-components";
 
 export default function ErrorMessage({ id, message }: { id: string; message: string }) {
 	return (
-		<StyledSpan id={id} role="alert">
+		<StyledSpan id={id} role="alert" data-testid={id}>
 			<Image src="/images/Alert.svg" width={20} height={20} alt="" />
 			{message}
 		</StyledSpan>

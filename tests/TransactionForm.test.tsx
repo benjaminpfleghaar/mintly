@@ -1,4 +1,5 @@
 import "@testing-library/jest-dom";
+import userEvent from "@testing-library/user-event";
 import { render, screen } from "@testing-library/react";
 import TransactionForm from "@/components/layout/TransactionForm";
 
@@ -54,10 +55,15 @@ describe("The category field uses a drop-down menu with existing categories, wit
 	});
 });
 
-// describe("Form submission is blocked if any required field is empty, and validation messages clearly indicate the incomplete fields", () => {
-// 	test("Disable submit button", () => {
-// 		render(<TransactionForm />);
-// 		const button = screen.getByText("Save");
-// 		expect(button).toHaveAttribute("disabled");
-// 	});
-// });
+describe("Form submission is blocked if any required field is empty, and validation messages clearly indicate the incomplete fields", () => {
+	test("Render error messages", async () => {
+		const user = userEvent.setup();
+		render(<TransactionForm />);
+		const button = screen.getByText("Save");
+		expect(button).toBeInTheDocument();
+
+		await user.click(button);
+		expect(screen.getByTestId("name-error")).toBeInTheDocument();
+		expect(screen.getByTestId("amount-error")).toBeInTheDocument();
+	});
+});
