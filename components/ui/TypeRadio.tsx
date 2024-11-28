@@ -1,19 +1,26 @@
 "use client";
 
+import { useState } from "react";
 import styled from "styled-components";
 
 export default function TypeRadio({ value = "Income" }: { value?: string }) {
+	const [radio, setRadio] = useState({ income: true, expense: false });
+
+	function handleChange() {
+		setRadio({ income: !radio.income, expense: !radio.expense });
+	}
+
 	return (
 		<StyledDiv>
 			<StyledSpan id="type">Type</StyledSpan>
 			<StyledFieldset aria-labelledby="type">
-				<StyledLabel htmlFor="income">
+				<StyledLabel htmlFor="income" $isChecked={radio.income}>
 					Income
-					<StyledInput id="income" type="radio" name="type" value="Income" defaultChecked={value === "Income"} />
+					<StyledInput id="income" type="radio" name="type" value="Income" defaultChecked={value === "Income"} onChange={handleChange} />
 				</StyledLabel>
-				<StyledLabel htmlFor="expense">
+				<StyledLabel htmlFor="expense" $isChecked={radio.expense}>
 					Expense
-					<StyledInput id="expense" type="radio" name="type" value="Expense" defaultChecked={value === "Expense"} />
+					<StyledInput id="expense" type="radio" name="type" value="Expense" defaultChecked={value === "Expense"} onChange={handleChange} />
 				</StyledLabel>
 			</StyledFieldset>
 		</StyledDiv>
@@ -34,7 +41,7 @@ const StyledFieldset = styled.fieldset`
 	display: flex;
 	gap: var(--spacing-8);
 `;
-const StyledLabel = styled.label`
+const StyledLabel = styled.label<{ $isChecked: boolean }>`
 	flex-grow: 1;
 	display: flex;
 	align-items: center;
@@ -44,6 +51,7 @@ const StyledLabel = styled.label`
 	justify-content: space-between;
 	border-radius: var(--spacing-8);
 	border: 1px solid var(--color-gray-80);
+	color: ${(prop) => (prop.$isChecked ? "var(--color-gray-0)" : "var(--color-gray-50)")};
 `;
 const StyledInput = styled.input`
 	border-radius: 50%;
