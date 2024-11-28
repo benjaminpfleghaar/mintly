@@ -44,10 +44,6 @@ const StyledLabel = styled.label`
 	justify-content: space-between;
 	border-radius: var(--spacing-8);
 	border: 1px solid var(--color-gray-80);
-
-	&::placeholder {
-		color: var(--color-gray-50);
-	}
 `;
 const StyledInput = styled.input`
 	border-radius: 50%;
