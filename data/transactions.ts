@@ -10,7 +10,7 @@ export const transactions = [
 	{
 		id: "2",
 		name: "Sunset Apartments",
-		amount: -1200.0,
+		amount: -1200,
 		category: "Rent",
 		type: "Expense",
 		date: "2024-09-05",
@@ -18,7 +18,7 @@ export const transactions = [
 	{
 		id: "3",
 		name: "Tech Corp Salary",
-		amount: 1500.0,
+		amount: 1500,
 		category: "Salary",
 		type: "Income",
 		date: "2024-09-30",
@@ -34,7 +34,7 @@ export const transactions = [
 	{
 		id: "5",
 		name: "City Transit Pass",
-		amount: -25.0,
+		amount: -25,
 		category: "Transportation",
 		type: "Expense",
 		date: "2024-10-10",
@@ -42,7 +42,7 @@ export const transactions = [
 	{
 		id: "6",
 		name: "Pure Fitness Gym",
-		amount: -45.0,
+		amount: -45,
 		category: "Health",
 		type: "Expense",
 		date: "2024-10-10",
@@ -50,7 +50,7 @@ export const transactions = [
 	{
 		id: "7",
 		name: "Bright Investments",
-		amount: 300.0,
+		amount: 300,
 		category: "Investment",
 		type: "Income",
 		date: "2024-10-14",
@@ -66,7 +66,7 @@ export const transactions = [
 	{
 		id: "9",
 		name: "Life Insurance",
-		amount: -200.0,
+		amount: -200,
 		category: "Insurance",
 		type: "Expense",
 		date: "2024-11-01",
@@ -74,7 +74,7 @@ export const transactions = [
 	{
 		id: "10",
 		name: "Health First Clinic",
-		amount: -150.0,
+		amount: -150,
 		category: "Health",
 		type: "Expense",
 		date: "2024-10-22",
@@ -82,7 +82,7 @@ export const transactions = [
 	{
 		id: "11",
 		name: "Downtown Bistro",
-		amount: -60.0,
+		amount: -60,
 		category: "Restaurants",
 		type: "Expense",
 		date: "2024-10-05",
@@ -90,7 +90,7 @@ export const transactions = [
 	{
 		id: "12",
 		name: "City University",
-		amount: -500.0,
+		amount: -500,
 		category: "Education",
 		type: "Expense",
 		date: "2024-09-30",
@@ -98,7 +98,7 @@ export const transactions = [
 	{
 		id: "13",
 		name: "Savings Deposit",
-		amount: 400.0,
+		amount: 400,
 		category: "Savings",
 		type: "Income",
 		date: "2024-11-08",
@@ -114,7 +114,7 @@ export const transactions = [
 	{
 		id: "15",
 		name: "Book Haven",
-		amount: -75.0,
+		amount: -75,
 		category: "Education",
 		type: "Expense",
 		date: "2024-10-18",
@@ -122,7 +122,7 @@ export const transactions = [
 	{
 		id: "16",
 		name: "Sunnyday Insurance",
-		amount: -125.0,
+		amount: -125,
 		category: "Insurance",
 		type: "Expense",
 		date: "2024-09-10",
@@ -130,7 +130,7 @@ export const transactions = [
 	{
 		id: "17",
 		name: "Green Thumb Nursery",
-		amount: -50.0,
+		amount: -50,
 		category: "Miscellaneous",
 		type: "Expense",
 		date: "2024-09-10",
@@ -138,7 +138,7 @@ export const transactions = [
 	{
 		id: "18",
 		name: "Metro Car Service",
-		amount: -75.0,
+		amount: -75,
 		category: "Transportation",
 		type: "Expense",
 		date: "2024-11-12",
@@ -146,7 +146,7 @@ export const transactions = [
 	{
 		id: "19",
 		name: "Movie Palace",
-		amount: -20.0,
+		amount: -20,
 		category: "Entertainment",
 		type: "Expense",
 		date: "2024-10-21",
@@ -154,7 +154,7 @@ export const transactions = [
 	{
 		id: "20",
 		name: "Fresh Fruits Market",
-		amount: -55.0,
+		amount: -55,
 		category: "Groceries",
 		type: "Expense",
 		date: "2024-11-05",
@@ -170,7 +170,7 @@ export const transactions = [
 	{
 		id: "22",
 		name: "Quick Stop Groceries",
-		amount: -30.0,
+		amount: -30,
 		category: "Groceries",
 		type: "Expense",
 		date: "2024-11-05",

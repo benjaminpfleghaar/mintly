@@ -27,20 +27,19 @@ export default function TransactionForm() {
 			return;
 		}
 
-		const formatAmount = type === "Expense" ? -amount : amount;
-
 		const transaction = {
 			name: name as string,
 			type: type as string,
 			id: nanoid().toString(),
 			category: category as string,
 			date: `${year}-${month}-${day}`,
-			amount: parseFloat(formatAmount as string),
+			amount: parseFloat((type === "Expense" ? -amount : amount) as string),
 		};
 
 		addTransaction(transaction);
 		router.push("/");
 	}
+
 	return (
 		<StyledForm onSubmit={handleFormSubmit}>
 			<AmountControl />

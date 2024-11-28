@@ -2,12 +2,8 @@
 
 import styled from "styled-components";
 
-export default function SubmitButton({ label, disabled }: { label: string; disabled?: boolean }) {
-	return (
-		<StyledButton type="submit" disabled={disabled}>
-			{label}
-		</StyledButton>
-	);
+export default function SubmitButton({ label }: { label: string }) {
+	return <StyledButton type="submit">{label}</StyledButton>;
 }
 
 const StyledButton = styled.button`
