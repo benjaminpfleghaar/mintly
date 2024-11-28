@@ -3,12 +3,12 @@
 import styled from "styled-components";
 import ErrorMessage from "@/components/ui/ErrorMessage";
 
-export default function NameInput({ value }: { value?: string }) {
+export default function NameInput({ value, showError }: { value?: string; showError: boolean }) {
 	return (
 		<StyledDiv>
 			<StyledLabel htmlFor="name">Name</StyledLabel>
-			<StyledInput id="name" type="text" name="name" defaultValue={value} placeholder="Please enter a name" aria-describedby="name-error" aria-invalid="true" />
-			<ErrorMessage id="name-error" message="Please enter a valid name" />
+			<StyledInput $showError={showError} id="name" type="text" name="name" defaultValue={value} placeholder="Please enter a name" aria-describedby={showError ? "name-error" : ""} aria-invalid={showError} />
+			{showError && <ErrorMessage id="name-error" message="Please enter a valid name" />}
 		</StyledDiv>
 	);
 }
@@ -22,12 +22,12 @@ const StyledLabel = styled.label`
 	color: var(--color-gray-50);
 	font: var(--font-regular-12);
 `;
-const StyledInput = styled.input`
+const StyledInput = styled.input<{ $showError: boolean }>`
 	height: var(--spacing-48);
 	font: var(--font-regular-14);
 	padding-left: var(--spacing-16);
 	border-radius: var(--spacing-8);
-	border: 1px solid var(--color-gray-80);
+	border: 1px solid ${(props) => (props.$showError ? "var(--color-red-90)" : "var(--color-gray-80)")};
 
 	&::placeholder {
 		color: var(--color-gray-50);

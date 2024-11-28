@@ -2,7 +2,6 @@
 
 import styled from "styled-components";
 import { parseDate } from "@/lib/utils";
-import ErrorMessage from "@/components/ui/ErrorMessage";
 
 export default function DateSelect({ value }: { value?: string }) {
 	const { day, month, year } = parseDate(value);
@@ -15,26 +14,25 @@ export default function DateSelect({ value }: { value?: string }) {
 		<StyledDiv>
 			<StyledSpan id="date">Date</StyledSpan>
 			<StyledFieldset aria-labelledby="date">
-				<StyledSelect name="day" aria-label="Day" defaultValue={day} aria-describedby="date-error" aria-invalid="true">
+				<StyledSelect name="day" aria-label="Day" defaultValue={day}>
 					<option disabled>Please select a day</option>
 					{days.map((day) => (
 						<option key={day}>{day}</option>
 					))}
 				</StyledSelect>
-				<StyledSelect name="month" aria-label="Month" defaultValue={month} aria-describedby="date-error" aria-invalid="true">
+				<StyledSelect name="month" aria-label="Month" defaultValue={month}>
 					<option disabled>Please select a month</option>
 					{months.map((month) => (
 						<option key={month}>{month}</option>
 					))}
 				</StyledSelect>
-				<StyledSelect name="year" aria-label="Year" defaultValue={year} aria-describedby="date-error" aria-invalid="true">
+				<StyledSelect name="year" aria-label="Year" defaultValue={year}>
 					<option disabled>Please select a year</option>
 					{years.map((year) => (
 						<option key={year}>{year}</option>
 					))}
 				</StyledSelect>
 			</StyledFieldset>
-			<ErrorMessage id="date-error" message="Please select a date" />
 		</StyledDiv>
 	);
 }

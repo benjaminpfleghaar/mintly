@@ -1,6 +1,7 @@
 "use client";
 
 import { nanoid } from "nanoid";
+import { useState } from "react";
 import styled from "styled-components";
 import { useRouter } from "next/navigation";
 import TypeRadio from "@/components/ui/TypeRadio";
@@ -15,15 +16,20 @@ import CategorySelect from "@/components/ui/CategorySelect";
 export default function TransactionForm() {
 	const router = useRouter();
 	const { addTransaction } = useTransactions();
+	const [errors, setErrors] = useState<string[]>([]);
 
 	function handleFormSubmit(event: React.FormEvent<HTMLFormElement>) {
 		event.preventDefault();
+		const collectedErrors = [];
 
 		const data = new FormData(event.currentTarget);
 		const { amount, name, category, type, day, month, year } = Object.fromEntries(data);
 
-		if (isNaN(parseFloat(amount as string))) {
-			console.error("Invalid amount:", amount);
+		if (!amount || isNaN(parseFloat(amount as string))) collectedErrors.push("amount");
+		if (!name) collectedErrors.push("name");
+
+		if (collectedErrors.length !== 0) {
+			setErrors([...collectedErrors]);
 			return;
 		}
 
@@ -42,8 +48,8 @@ export default function TransactionForm() {
 
 	return (
 		<StyledForm onSubmit={handleFormSubmit}>
-			<AmountControl />
-			<NameInput />
+			<AmountControl showError={errors.includes("amount")} />
+			<NameInput showError={errors.includes("name")} />
 			<CategorySelect />
 			<TypeRadio />
 			<DateSelect />

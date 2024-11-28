@@ -4,7 +4,7 @@ import { useState } from "react";
 import styled from "styled-components";
 
 export default function TypeRadio({ value = "Income" }: { value?: string }) {
-	const [radio, setRadio] = useState({ income: true, expense: false });
+	const [radio, setRadio] = useState({ income: value === "Income", expense: value === "Expense" });
 
 	function handleChange() {
 		setRadio({ income: !radio.income, expense: !radio.expense });
@@ -16,11 +16,11 @@ export default function TypeRadio({ value = "Income" }: { value?: string }) {
 			<StyledFieldset aria-labelledby="type">
 				<StyledLabel htmlFor="income" $isChecked={radio.income}>
 					Income
-					<StyledInput id="income" type="radio" name="type" value="Income" defaultChecked={value === "Income"} onChange={handleChange} />
+					<StyledInput id="income" type="radio" name="type" value="Income" defaultChecked={radio.income} onChange={handleChange} />
 				</StyledLabel>
 				<StyledLabel htmlFor="expense" $isChecked={radio.expense}>
 					Expense
-					<StyledInput id="expense" type="radio" name="type" value="Expense" defaultChecked={value === "Expense"} onChange={handleChange} />
+					<StyledInput id="expense" type="radio" name="type" value="Expense" defaultChecked={radio.expense} onChange={handleChange} />
 				</StyledLabel>
 			</StyledFieldset>
 		</StyledDiv>
