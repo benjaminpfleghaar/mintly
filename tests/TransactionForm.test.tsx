@@ -59,7 +59,8 @@ describe("Form submission is blocked if any required field is empty, and validat
 	test("Render error messages", async () => {
 		const user = userEvent.setup();
 		render(<TransactionForm />);
-		const button = screen.getByText("Save");
+		// const button = screen.getByText("Save");
+		const button = screen.getByRole("button", { name: "Save" });
 		expect(button).toBeInTheDocument();
 
 		await user.click(button);
