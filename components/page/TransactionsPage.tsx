@@ -1,24 +1,28 @@
 "use client";
 
 import styled from "styled-components";
+import { useToast } from "@/states/useToast";
 import Header from "@/components/layout/Header";
 import Status from "@/components/layout/Status";
 import Balance from "@/components/layout/Balance";
 import { IconLinkProps } from "@/types/IconLinkProps";
+import ToastMessage from "@/components/ui/ToastMessage";
 import { useTransactions } from "@/states/useTransactions";
 import TransactionsList from "@/components/layout/TransactionsList";
 
 export default function TransactionsPage() {
+	const { showToast } = useToast();
 	const { transactions } = useTransactions();
 
 	const iconOnRightSide: IconLinkProps = {
 		icon: "Add",
 		label: "Add new transaction",
-		href: "/",
+		href: "/create",
 	};
 
 	return (
 		<>
+			{showToast && <ToastMessage />}
 			<Header title="Transactions" iconOnRightSide={iconOnRightSide} />
 			<StyledMain>
 				<Balance transactions={transactions} />

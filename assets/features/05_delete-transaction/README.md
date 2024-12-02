@@ -8,7 +8,7 @@ so that **I can maintain an accurate and organized transactions list.**
 
 ## Assets
 
-| Wireframe               | Layout               | Components               |
+|        Wireframe        |        Layout        |        Components        |
 | :---------------------: | :------------------: | :----------------------: |
 | [Link](./wireframe.png) | [Link](./layout.png) | [Link](./components.png) |
 

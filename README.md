@@ -1,6 +1,6 @@
 # Mintly
 
-This app project is a personal exercise in test-driven development, centered on mastering CRUD operations. Designed as a learning project, it follows a structured process where each feature is developed independently to ensure a modular and maintainable codebase. The development process includes:
+This app project is a personal exercise in feature-driven development, centered on mastering CRUD operations. Designed as a learning project, it follows a structured process where each feature is developed independently to ensure a modular and maintainable codebase. The development process includes:
 
 1. Defining a user story
 2. Creating a wireframe
@@ -36,7 +36,7 @@ The complete styleguide including fonts, colors, icons and general design princi
 | :-: | ------------------------------------------------------------------------- | :------------------------------------------------------------: | :---------------------------------------------------------: | :-------------------------------------------------------------: | :------------: | :-----: | :-------: |
 |  1  | [Transactions List](./assets/features/01_transactions-list/README.md)     |  [Link](./assets/features/01_transactions-list/wireframe.png)  |  [Link](./assets/features/01_transactions-list/layout.png)  |  [Link](./assets/features/01_transactions-list/components.png)  |    &check;     | &check; |  &check;  |
 |  2  | [Account Balance](./assets/features/02_account-balance/README.md)         |   [Link](./assets/features/02_account-balance/wireframe.png)   |   [Link](./assets/features/02_account-balance/layout.png)   |   [Link](./assets/features/02_account-balance/components.png)   |    &check;     | &check; |  &check;  |
-|  3  | [Create Transaction](./assets/features/03_create-transaction/README.md)   | [Link](./assets/features/03_create-transaction/wireframe.png)  | [Link](./assets/features/03_create-transaction/layout.png)  | [Link](./assets/features/03_create-transaction/components.png)  |       -        |    -    |     -     |
+|  3  | [Create Transaction](./assets/features/03_create-transaction/README.md)   | [Link](./assets/features/03_create-transaction/wireframe.png)  | [Link](./assets/features/03_create-transaction/layout.png)  | [Link](./assets/features/03_create-transaction/components.png)  |    &check;     | &check; |  &check;  |
 |  4  | [Transaction Details](./assets/features/04_transaction-details/README.md) | [Link](./assets/features/04_transaction-details/wireframe.png) | [Link](./assets/features/04_transaction-details/layout.png) | [Link](./assets/features/04_transaction-details/components.png) |       -        |    -    |     -     |
 |  5  | [Delete Transaction](./assets/features/05_delete-transaction/README.md)   | [Link](./assets/features/05_delete-transaction/wireframe.png)  | [Link](./assets/features/05_delete-transaction/layout.png)  | [Link](./assets/features/05_delete-transaction/components.png)  |       -        |    -    |     -     |
 |  6  | [Update Transaction](./assets/features/06_update-transaction/README.md)   | [Link](./assets/features/06_update-transaction/wireframe.png)  | [Link](./assets/features/06_update-transaction/layout.png)  | [Link](./assets/features/06_update-transaction/components.png)  |       -        |    -    |     -     |
@@ -70,6 +70,7 @@ The application uses _Next.js_ as it's foundation.
 -   react-dom
 -   styled-components
 -   zustand
+-   nanoid
 -   jest
 
 ## Tech Stack

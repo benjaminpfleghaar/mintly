@@ -78,6 +78,15 @@ const GlobalStyles = createGlobalStyle`
 	button {
 		cursor: pointer;
 	}
+	input,
+	select,
+	button {
+		border: none;
+		outline: none;
+		color: inherit;
+		appearance: none;
+		background: transparent;
+	}
 	a,
 	input,
 	button,
