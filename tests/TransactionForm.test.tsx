@@ -1,4 +1,5 @@
 import "@testing-library/jest-dom";
+import { useRouter } from "next/navigation";
 import userEvent from "@testing-library/user-event";
 import { render, screen } from "@testing-library/react";
 import TransactionForm from "@/components/layout/TransactionForm";
@@ -59,12 +60,35 @@ describe("Form submission is blocked if any required field is empty, and validat
 	test("Render error messages", async () => {
 		const user = userEvent.setup();
 		render(<TransactionForm />);
-		// const button = screen.getByText("Save");
 		const button = screen.getByRole("button", { name: "Save" });
 		expect(button).toBeInTheDocument();
 
 		await user.click(button);
 		expect(screen.getByTestId("name-error")).toBeInTheDocument();
 		expect(screen.getByTestId("amount-error")).toBeInTheDocument();
+	});
+});
+
+describe("After form submission, the user is redirected back to the transactions list and a success message is displayed", () => {
+	test("Submit form and redirect user", async () => {
+		const push = jest.fn();
+		(useRouter as jest.Mock).mockImplementation(() => ({
+			push,
+		}));
+
+		const user = userEvent.setup();
+		render(<TransactionForm />);
+
+		const button = screen.getByRole("button", { name: "Save" });
+		expect(button).toBeInTheDocument();
+
+		const amount = screen.getByLabelText("Amount");
+		await user.type(amount, "1");
+
+		const name = screen.getByLabelText("Name");
+		await user.type(name, "abc");
+
+		await user.click(button);
+		expect(push).toHaveBeenCalledWith("/");
 	});
 });
