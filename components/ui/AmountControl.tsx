@@ -1,5 +1,3 @@
-"use client";
-
 import { useRef } from "react";
 import styled from "styled-components";
 import PillButton from "@/components/ui/PillButton";

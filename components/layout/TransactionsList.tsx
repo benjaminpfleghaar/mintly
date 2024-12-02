@@ -1,5 +1,3 @@
-"use client";
-
 import styled from "styled-components";
 import Table from "@/components/layout/Table";
 import { Transactions } from "@/types/Transactions";

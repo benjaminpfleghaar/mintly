@@ -1,5 +1,3 @@
-"use client";
-
 import styled from "styled-components";
 import IconLink from "@/components/ui/IconLink";
 import { IconLinkProps } from "@/types/IconLinkProps";

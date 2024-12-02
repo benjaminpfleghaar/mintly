@@ -1,5 +1,3 @@
-"use client";
-
 import styled from "styled-components";
 import { Transactions } from "@/types/Transactions";
 import { formatAmount, getTotalTransactionsAmount } from "@/lib/utils";

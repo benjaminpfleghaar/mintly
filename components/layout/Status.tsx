@@ -1,5 +1,3 @@
-"use client";
-
 import styled from "styled-components";
 import Icon from "@/components/ui/Icon";
 import OutlineButton from "@/components/ui/OutlineButton";

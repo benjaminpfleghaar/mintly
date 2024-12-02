@@ -1,9 +1,8 @@
-"use client";
-
 import { nanoid } from "nanoid";
 import { useState } from "react";
 import styled from "styled-components";
 import { useRouter } from "next/navigation";
+import { useToast } from "@/states/useToast";
 import TypeRadio from "@/components/ui/TypeRadio";
 import NameInput from "@/components/ui/NameInput";
 import DateSelect from "@/components/ui/DateSelect";
@@ -15,6 +14,7 @@ import CategorySelect from "@/components/ui/CategorySelect";
 
 export default function TransactionForm() {
 	const router = useRouter();
+	const { toggleToast } = useToast();
 	const { addTransaction } = useTransactions();
 	const [errors, setErrors] = useState<string[]>([]);
 
@@ -43,6 +43,7 @@ export default function TransactionForm() {
 		};
 
 		addTransaction(transaction);
+		toggleToast();
 		router.push("/");
 	}
 

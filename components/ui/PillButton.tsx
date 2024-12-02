@@ -1,5 +1,3 @@
-"use client";
-
 import styled from "styled-components";
 
 export default function PillButton({ onClick, label }: { onClick: () => void; label: string }) {
