@@ -1,6 +1,25 @@
 # Mintly
 
-This app project is a personal exercise in feature-driven development, centered on mastering CRUD operations. Designed as a learning project, it follows a structured process where each feature is developed independently to ensure a modular and maintainable codebase. The development process includes:
+This app project is a personal exercise in feature-driven development, centered on mastering CRUD operations. Designed as a learning project, it follows a structured process where each feature is developed independently to ensure a modular and maintainable codebase.
+
+## Table of Contents
+
+1. [Description](#description)
+2. [Process](#process)
+3. [Design](#design)
+4. [Features](#features)
+5. [Backlog](#backlog)
+6. [How to use](#how-to-use)
+7. [Dependencies](#dependencies)
+8. [Tech Stack](#tech-stack)
+
+## Description
+
+Mintly helps users effortlessly track, manage, and analyze their expenses and savings, supporting healthier financial habits and smarter decision-making. The app provides tools for recording, editing, deleting, and filtering transactions, along with detailed transaction insights and budget summaries for a comprehensive financial overview.
+
+## Process
+
+The development process includes:
 
 1. Defining a user story
 2. Creating a wireframe
@@ -9,20 +28,6 @@ This app project is a personal exercise in feature-driven development, centered 
 5. Building a static version
 6. Writing component tests
 7. Implementing data flow
-
-## Table of Contents
-
-1. [Description](#description)
-2. [Design](#design)
-3. [Features](#features)
-4. [Backlog](#backlog)
-5. [How to use](#how-to-use)
-6. [Dependencies](#dependencies)
-7. [Tech Stack](#tech-stack)
-
-## Description
-
-Mintly helps users effortlessly track, manage, and analyze their expenses and savings, supporting healthier financial habits and smarter decision-making. The app provides tools for recording, editing, deleting, and filtering transactions, along with detailed transaction insights and budget summaries for a comprehensive financial overview.
 
 ## Design
 
