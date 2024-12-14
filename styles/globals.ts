@@ -72,6 +72,7 @@ const GlobalStyles = createGlobalStyle`
 		list-style: none;
 	}
 	img {
+		height: auto;
 		display: block;
 		max-width: 100%;
 	}
