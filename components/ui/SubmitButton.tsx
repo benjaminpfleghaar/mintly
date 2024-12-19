@@ -12,10 +12,10 @@ const StyledButton = styled.button`
 	border-radius: var(--spacing-8);
 	background-color: var(--color-gray-0);
 
-	&:disabled {
+	/* &:disabled {
 		cursor: default;
 		color: var(--color-gray-50);
 		background-color: var(--color-gray-90);
 		border: 1px solid var(--color-gray-80);
-	}
+	} */
 `;

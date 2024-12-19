@@ -1,14 +1,12 @@
 "use client";
 
 import styled from "styled-components";
-import { formatDate } from "@/lib/utils";
 import { formatAmount } from "@/lib/utils";
-import Table from "@/components/layout/Table";
 import Header from "@/components/layout/Header";
 import { IconLinkProps } from "@/types/IconLinkProps";
 import GhostButton from "@/components/ui/GhostButton";
-import VerticalRow from "@/components/layout/VerticalRow";
 // import { useTransactions } from "@/states/useTransactions";
+import TransactionDetails from "@/components/layout/TransactionDetails";
 
 export default function TransactionDetailsPage({ id }: { id: string }) {
 	// const { transactions } = useTransactions();
@@ -33,20 +31,7 @@ export default function TransactionDetailsPage({ id }: { id: string }) {
 					<StyledHeadline>Amount</StyledHeadline>
 					<StyledData value="-75">{formatAmount(-75)}</StyledData>
 				</StyledSection>
-				<Table>
-					<StyledListItem>
-						<VerticalRow icon="Transportation" title="Category" value="Transportation" />
-					</StyledListItem>
-					<StyledListItem>
-						<VerticalRow icon="Card" title="Card" value="•••• •••• •••• 5436" />
-					</StyledListItem>
-					<StyledListItem>
-						<VerticalRow icon="Calendar" title="Date" value={formatDate("2024-11-12")} />
-					</StyledListItem>
-					<StyledListItem>
-						<VerticalRow icon="Expense" title="Type" value="Expense" />
-					</StyledListItem>
-				</Table>
+				<TransactionDetails category="Transportation" date="2024-11-12" type="Expense" />
 				<GhostButton onClick={() => console.log("Delete")} label="Delete transaction" color="red" />
 			</StyledMain>
 		</>
@@ -74,11 +59,4 @@ const StyledHeadline = styled.h2`
 `;
 const StyledData = styled.data`
 	font: var(--font-medium-40);
-`;
-const StyledListItem = styled.li`
-	border-bottom: 1px solid var(--color-gray-80);
-
-	&:last-child {
-		border: none;
-	}
 `;
