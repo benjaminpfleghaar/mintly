@@ -5,11 +5,12 @@ import { formatAmount } from "@/lib/utils";
 import Header from "@/components/layout/Header";
 import { IconLinkProps } from "@/types/IconLinkProps";
 import GhostButton from "@/components/ui/GhostButton";
-// import { useTransactions } from "@/states/useTransactions";
+import { useTransactions } from "@/states/useTransactions";
 import TransactionDetails from "@/components/layout/TransactionDetails";
 
 export default function TransactionDetailsPage({ id }: { id: string }) {
-	// const { transactions } = useTransactions();
+	const { transactions } = useTransactions();
+	const { name, amount, category, type, date } = transactions.find((transaction) => transaction.id === id);
 
 	const iconOnLeftSide: IconLinkProps = {
 		icon: "Back",
@@ -25,13 +26,13 @@ export default function TransactionDetailsPage({ id }: { id: string }) {
 
 	return (
 		<>
-			<Header title="Metro Car Service" iconOnLeftSide={iconOnLeftSide} iconOnRightSide={iconOnRightSide} />
+			<Header title={name} iconOnLeftSide={iconOnLeftSide} iconOnRightSide={iconOnRightSide} />
 			<StyledMain>
 				<StyledSection>
 					<StyledHeadline>Amount</StyledHeadline>
-					<StyledData value="-75">{formatAmount(-75)}</StyledData>
+					<StyledData value={amount}>{formatAmount(amount)}</StyledData>
 				</StyledSection>
-				<TransactionDetails category="Transportation" date="2024-11-12" type="Expense" />
+				<TransactionDetails category={category} date={date} type={type} />
 				<GhostButton onClick={() => console.log("Delete")} label="Delete transaction" color="red" />
 			</StyledMain>
 		</>
