@@ -7,31 +7,31 @@ export default function TransactionDetails({ category, date, type }: { category:
 		<StyledList>
 			<StyledListItem>
 				<Icon icon={category} />
-				<div>
+				<StyledDiv>
 					<StyledHeadline>Category</StyledHeadline>
 					<StyledParagraph>{category}</StyledParagraph>
-				</div>
+				</StyledDiv>
 			</StyledListItem>
 			<StyledListItem>
 				<Icon icon="Card" />
-				<div>
+				<StyledDiv>
 					<StyledHeadline>Card</StyledHeadline>
 					<StyledParagraph>•••• •••• •••• 5436</StyledParagraph>
-				</div>
+				</StyledDiv>
 			</StyledListItem>
 			<StyledListItem>
 				<Icon icon="Calendar" />
-				<div>
+				<StyledDiv>
 					<StyledHeadline>Date</StyledHeadline>
 					<StyledTime dateTime={date}>{formatDate(date)}</StyledTime>
-				</div>
+				</StyledDiv>
 			</StyledListItem>
 			<StyledListItem>
 				<Icon icon={type} />
-				<div>
+				<StyledDiv>
 					<StyledHeadline>Type</StyledHeadline>
 					<StyledParagraph>{type}</StyledParagraph>
-				</div>
+				</StyledDiv>
 			</StyledListItem>
 		</StyledList>
 	);
@@ -53,10 +53,14 @@ const StyledListItem = styled.li`
 		border: none;
 	}
 `;
+const StyledDiv = styled.div`
+	display: flex;
+	gap: var(--spacing-4);
+	flex-direction: column;
+`;
 const StyledHeadline = styled.h3`
 	color: var(--color-gray-50);
 	font: var(--font-regular-12);
-	margin-bottom: var(--spacing-4);
 `;
 const StyledParagraph = styled.p`
 	font: var(--font-regular-16);

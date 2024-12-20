@@ -1,6 +1,7 @@
 "use client";
 
 import styled from "styled-components";
+import { notFound } from "next/navigation";
 import { formatAmount } from "@/lib/utils";
 import Header from "@/components/layout/Header";
 import { IconLinkProps } from "@/types/IconLinkProps";
@@ -10,7 +11,7 @@ import TransactionDetails from "@/components/layout/TransactionDetails";
 
 export default function TransactionDetailsPage({ id }: { id: string }) {
 	const { transactions } = useTransactions();
-	const { name, amount, category, type, date } = transactions.find((transaction) => transaction.id === id);
+	const transaction = transactions.find((transaction) => transaction.id === id);
 
 	const iconOnLeftSide: IconLinkProps = {
 		icon: "Back",
@@ -23,6 +24,10 @@ export default function TransactionDetailsPage({ id }: { id: string }) {
 		label: "Edit transaction",
 		href: `/${id}/edit`,
 	};
+
+	if (!transaction) notFound();
+
+	const { name, amount, category, type, date } = transaction;
 
 	return (
 		<>
@@ -47,7 +52,7 @@ const StyledMain = styled.main`
 	padding: var(--spacing-40) 0;
 	margin-top: var(--spacing-64);
 	width: min(640px, 100% - var(--spacing-32));
-	min-height: calc(100svh - var(--spacing-64));
+	min-height: calc(100dvh - var(--spacing-64));
 `;
 const StyledSection = styled.section`
 	display: flex;

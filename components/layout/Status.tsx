@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import Icon from "@/components/ui/Icon";
+import { useRouter } from "next/navigation";
 import OutlineButton from "@/components/ui/OutlineButton";
 
 interface StatusCasesProps {
@@ -11,27 +12,35 @@ interface StatusCasesProps {
 	};
 }
 
-const statusCases: StatusCasesProps = {
-	empty: {
-		icon: "Empty",
-		headline: "No transactions available",
-		paragraph: "Start by adding a new one",
-		button: <OutlineButton onClick={() => console.log("Create transaction")} label="Create transaction" />,
-	},
-	search: {
-		icon: "Search",
-		headline: "No matches found",
-		paragraph: "Try a different search term",
-	},
-	filter: {
-		icon: "Filter",
-		headline: "No transactions in this category",
-		paragraph: "Try a different or reset your filter",
-		button: <OutlineButton onClick={() => console.log("Reset filter")} label="Reset filter" />,
-	},
-} as const;
+export default function Status({ type }: { type: "notFound" | "empty" | "search" | "filter" }) {
+	const router = useRouter();
 
-export default function Status({ type }: { type: "empty" | "search" | "filter" }) {
+	const statusCases: StatusCasesProps = {
+		notFound: {
+			icon: "Empty",
+			headline: "404",
+			paragraph: "Page could not be found",
+			button: <OutlineButton onClick={() => router.push("/")} label="Return home" />,
+		},
+		empty: {
+			icon: "Empty",
+			headline: "No transactions available",
+			paragraph: "Start by adding a new one",
+			button: <OutlineButton onClick={() => console.log("Create transaction")} label="Create transaction" />,
+		},
+		search: {
+			icon: "Search",
+			headline: "No matches found",
+			paragraph: "Try a different search term",
+		},
+		filter: {
+			icon: "Filter",
+			headline: "No transactions in this category",
+			paragraph: "Try a different or reset your filter",
+			button: <OutlineButton onClick={() => console.log("Reset filter")} label="Reset filter" />,
+		},
+	} as const;
+
 	const status = statusCases[type];
 
 	return (

@@ -2,10 +2,10 @@
 
 import styled from "styled-components";
 import Header from "@/components/layout/Header";
+import Status from "@/components/layout/Status";
 import { IconLinkProps } from "@/types/IconLinkProps";
-import TransactionForm from "@/components/layout/TransactionForm";
 
-export default function CreateTransactionPage() {
+export default function NotFound() {
 	const iconOnLeftSide: IconLinkProps = {
 		icon: "Back",
 		label: "Back to transactions",
@@ -14,9 +14,9 @@ export default function CreateTransactionPage() {
 
 	return (
 		<>
-			<Header title="Create transaction" iconOnLeftSide={iconOnLeftSide} />
+			<Header title="Not found" iconOnLeftSide={iconOnLeftSide} />
 			<StyledMain>
-				<TransactionForm />
+				<Status type="notFound" />
 			</StyledMain>
 		</>
 	);
