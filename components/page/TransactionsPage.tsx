@@ -40,5 +40,5 @@ const StyledMain = styled.main`
 	padding: var(--spacing-40) 0;
 	margin-top: var(--spacing-64);
 	width: min(640px, 100% - var(--spacing-32));
-	min-height: calc(100svh - var(--spacing-64));
+	min-height: calc(100dvh - var(--spacing-64));
 `;
