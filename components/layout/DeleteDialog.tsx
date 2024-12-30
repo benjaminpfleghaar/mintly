@@ -5,7 +5,7 @@ import DeleteButton from "@/components/ui/DeleteButton";
 
 export default function DeleteDialog({ toggleDelete }: { toggleDelete: VoidFunction }) {
 	return (
-		<StyledSection>
+		<StyledSection data-testid="delete-dialog">
 			<Note />
 			<StyledDiv>
 				<DeleteButton label="Delete transaction" />
