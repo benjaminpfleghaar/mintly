@@ -3,13 +3,13 @@ import Note from "@/components/ui/Note";
 import GhostButton from "@/components/ui/GhostButton";
 import DeleteButton from "@/components/ui/DeleteButton";
 
-export default function DeleteDialog() {
+export default function DeleteDialog({ toggleDelete }: { toggleDelete: VoidFunction }) {
 	return (
 		<StyledSection>
 			<Note />
 			<StyledDiv>
 				<DeleteButton label="Delete transaction" />
-				<GhostButton onClick={() => {}} label="Cancel" />
+				<GhostButton onClick={toggleDelete} label="Cancel" />
 			</StyledDiv>
 		</StyledSection>
 	);

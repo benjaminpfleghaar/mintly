@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import styled from "styled-components";
 import { notFound } from "next/navigation";
 import { formatAmount } from "@/lib/utils";
@@ -12,6 +13,7 @@ import TransactionDetails from "@/components/layout/TransactionDetails";
 
 export default function TransactionDetailsPage({ id }: { id: string }) {
 	const { transactions } = useTransactions();
+	const [toggleDelete, setToggleDelete] = useState(false);
 	const transaction = transactions.find((transaction) => transaction.id === id);
 
 	const iconOnLeftSide: IconLinkProps = {
@@ -39,8 +41,7 @@ export default function TransactionDetailsPage({ id }: { id: string }) {
 					<StyledData value={amount}>{formatAmount(amount)}</StyledData>
 				</StyledSection>
 				<TransactionDetails category={category} date={date} type={type} />
-				<GhostButton onClick={() => console.log("Delete")} label="Delete transaction" color="red" />
-				<DeleteDialog />
+				{toggleDelete ? <DeleteDialog toggleDelete={() => setToggleDelete(false)} /> : <GhostButton onClick={() => setToggleDelete(true)} label="Delete transaction" color="red" />}
 			</StyledMain>
 		</>
 	);
