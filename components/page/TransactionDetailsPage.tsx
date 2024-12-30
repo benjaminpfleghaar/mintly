@@ -7,6 +7,7 @@ import Header from "@/components/layout/Header";
 import { IconLinkProps } from "@/types/IconLinkProps";
 import GhostButton from "@/components/ui/GhostButton";
 import { useTransactions } from "@/states/useTransactions";
+import DeleteDialog from "@/components/layout/DeleteDialog";
 import TransactionDetails from "@/components/layout/TransactionDetails";
 
 export default function TransactionDetailsPage({ id }: { id: string }) {
@@ -39,6 +40,7 @@ export default function TransactionDetailsPage({ id }: { id: string }) {
 				</StyledSection>
 				<TransactionDetails category={category} date={date} type={type} />
 				<GhostButton onClick={() => console.log("Delete")} label="Delete transaction" color="red" />
+				<DeleteDialog />
 			</StyledMain>
 		</>
 	);
