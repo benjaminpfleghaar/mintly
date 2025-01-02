@@ -28,6 +28,7 @@ export default function TransactionDetailsPage({ id }: { id: string }) {
 		href: `/${id}/edit`,
 	};
 
+	if (!transaction && toggleDelete) return null;
 	if (!transaction) notFound();
 
 	const { name, amount, category, type, date } = transaction;
@@ -41,7 +42,7 @@ export default function TransactionDetailsPage({ id }: { id: string }) {
 					<StyledData value={amount}>{formatAmount(amount)}</StyledData>
 				</StyledSection>
 				<TransactionDetails category={category} date={date} type={type} />
-				{toggleDelete ? <DeleteDialog toggleDelete={() => setToggleDelete(false)} /> : <GhostButton onClick={() => setToggleDelete(true)} label="Delete transaction" color="red" />}
+				{toggleDelete ? <DeleteDialog transactionId={id} toggleDelete={() => setToggleDelete(false)} /> : <GhostButton onClick={() => setToggleDelete(true)} label="Delete transaction" color="red" />}
 			</StyledMain>
 		</>
 	);
