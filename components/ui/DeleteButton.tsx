@@ -1,6 +1,10 @@
 import styled from "styled-components";
-export default function DeleteButton({ label }: { label: string }) {
-	return <StyledButton type="button">{label}</StyledButton>;
+export default function DeleteButton({ onClick, label }: { onClick: () => void; label: string }) {
+	return (
+		<StyledButton type="button" onClick={onClick}>
+			{label}
+		</StyledButton>
+	);
 }
 const StyledButton = styled.button`
 	height: var(--spacing-48);
