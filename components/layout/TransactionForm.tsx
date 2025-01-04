@@ -43,7 +43,7 @@ export default function TransactionForm() {
 		};
 
 		addTransaction(transaction);
-		toggleToast();
+		toggleToast("The transaction was successfully created.");
 		router.push("/");
 	}
 

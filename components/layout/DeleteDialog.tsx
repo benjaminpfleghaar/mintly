@@ -13,7 +13,7 @@ export default function DeleteDialog({ transactionId, toggleDelete }: { transact
 
 	function handleDelete() {
 		deleteTransaction(transactionId);
-		toggleToast();
+		toggleToast("The transaction was successfully deleted.");
 		router.push("/");
 	}
 	return (
