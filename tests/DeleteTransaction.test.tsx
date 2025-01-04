@@ -40,9 +40,30 @@ describe("If the user cancels the deletion, they are returned to the transaction
 });
 
 describe("After confirming the deletion, the transaction is removed from the list", () => {
-	test("Deleted transaction is not visible", async () => {});
-});
+	test("Deleted transaction is not visible, the user is redirected back to the transactions list and a success message is displayed", async () => {
+		const push = jest.fn();
+		(useRouter as jest.Mock).mockImplementation(() => ({
+			push,
+		}));
 
-describe("After deletion, the user is redirected back to the transactions list and a success message is displayed", () => {
-	test("Delete transaction and redirect user", async () => {});
+		const user = userEvent.setup();
+		render(<TransactionDetailsPage id="1" />);
+		const showDeleteDialogButton = screen.getByRole("button", { name: "Delete transaction" });
+		expect(showDeleteDialogButton).toBeInTheDocument();
+
+		await user.click(showDeleteDialogButton);
+
+		const deleteTransactionButton = screen.getByRole("button", { name: "Delete transaction" });
+		expect(deleteTransactionButton).toBeInTheDocument();
+
+		await user.click(deleteTransactionButton);
+		expect(push).toHaveBeenCalledWith("/");
+
+		render(<TransactionsPage />);
+
+		const transaction = screen.queryByText("Whole Mart");
+		expect(transaction).not.toBeInTheDocument();
+
+		expect(screen.getByTestId("toast-message")).toBeInTheDocument();
+	});
 });

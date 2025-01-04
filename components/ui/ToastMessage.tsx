@@ -17,7 +17,7 @@ export default function ToastMessage() {
 	}, [toggleToast]);
 
 	return (
-		<StyledDiv>
+		<StyledDiv data-testid="toast-message">
 			{toastMessage}
 			<button type="button" aria-label="Close success message" onClick={() => toggleToast()}>
 				<Image src="/images/Close.svg" width={20} height={20} alt="" />

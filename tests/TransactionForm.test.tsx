@@ -2,6 +2,7 @@ import "@testing-library/jest-dom";
 import { useRouter } from "next/navigation";
 import userEvent from "@testing-library/user-event";
 import { render, screen } from "@testing-library/react";
+import TransactionsPage from "@/components/page/TransactionsPage";
 import TransactionForm from "@/components/layout/TransactionForm";
 
 jest.mock("nanoid", () => ({
@@ -90,5 +91,8 @@ describe("After form submission, the user is redirected back to the transactions
 
 		await user.click(button);
 		expect(push).toHaveBeenCalledWith("/");
+
+		render(<TransactionsPage />);
+		expect(screen.getByTestId("toast-message")).toBeInTheDocument();
 	});
 });
