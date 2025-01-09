@@ -5,7 +5,7 @@ export default function Note() {
 	return (
 		<StyledParagraph>
 			<Image src="/images/Alert.svg" width={20} height={20} alt="" />
-			Once you delete this transaction, there is no going back. Please be certain.
+			Deleting a transaction cannot be undone. Are you sure?
 		</StyledParagraph>
 	);
 }
