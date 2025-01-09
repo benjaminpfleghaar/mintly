@@ -12,7 +12,7 @@ import AmountControl from "@/components/ui/AmountControl";
 import { useTransactions } from "@/states/useTransactions";
 import CategorySelect from "@/components/ui/CategorySelect";
 
-export default function TransactionForm() {
+export default function TransactionForm({ type }: { type: "create" | "edit" }) {
 	const router = useRouter();
 	const { toggleToast } = useToast();
 	const { addTransaction } = useTransactions();

@@ -3,6 +3,7 @@
 import styled from "styled-components";
 import Header from "@/components/layout/Header";
 import { IconLinkProps } from "@/types/IconLinkProps";
+import TransactionForm from "@/components/layout/TransactionForm";
 
 export default function EditTransactionPage({ id }: { id: string }) {
 	const iconOnLeftSide: IconLinkProps = {
@@ -14,7 +15,9 @@ export default function EditTransactionPage({ id }: { id: string }) {
 	return (
 		<>
 			<Header title="Edit transaction" iconOnLeftSide={iconOnLeftSide} />
-			<StyledMain></StyledMain>
+			<StyledMain>
+				<TransactionForm type="edit" />
+			</StyledMain>
 		</>
 	);
 }
