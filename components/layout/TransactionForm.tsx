@@ -16,8 +16,8 @@ import CategorySelect from "@/components/ui/CategorySelect";
 export default function TransactionForm({ id, mode }: { id?: string; mode: "create" | "edit" }) {
 	const router = useRouter();
 	const { toggleToast } = useToast();
-	const { transactions, addTransaction } = useTransactions();
 	const [errors, setErrors] = useState<string[]>([]);
+	const { transactions, addTransaction, updateTransaction } = useTransactions();
 	const transaction = transactions.find((transaction) => transaction.id === id);
 
 	function handleFormSubmit(event: React.FormEvent<HTMLFormElement>) {
@@ -38,15 +38,20 @@ export default function TransactionForm({ id, mode }: { id?: string; mode: "crea
 		const transaction = {
 			name: name as string,
 			type: type as string,
-			id: nanoid().toString(),
+			id: mode === "create" ? nanoid().toString() : id || "",
 			category: category as string,
 			date: `${year}-${month}-${day}`,
 			amount: parseFloat((type === "Expense" ? -amount : amount) as string),
 		};
 
-		addTransaction(transaction);
-		if (mode === "create") toggleToast("Transaction successfully created.");
-		if (mode === "edit") toggleToast("Transaction successfully updated.");
+		if (mode === "create") {
+			addTransaction(transaction);
+			toggleToast("Transaction successfully created.");
+		}
+		if (mode === "edit") {
+			updateTransaction(transaction);
+			toggleToast("Transaction successfully updated.");
+		}
 		router.push("/");
 	}
 
