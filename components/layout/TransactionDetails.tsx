@@ -45,7 +45,6 @@ const StyledListItem = styled.li`
 	display: flex;
 	align-items: center;
 	gap: var(--spacing-16);
-	border-radius: var(--spacing-8);
 	border-bottom: 1px solid var(--color-gray-80);
 	padding: var(--spacing-16) var(--spacing-24) var(--spacing-16) var(--spacing-16);
 
