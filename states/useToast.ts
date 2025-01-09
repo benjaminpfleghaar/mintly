@@ -2,10 +2,12 @@ import { create } from "zustand";
 
 interface ToastState {
 	showToast: boolean;
-	toggleToast: () => void;
+	toastMessage: string;
+	toggleToast: (message?: string) => void;
 }
 
 export const useToast = create<ToastState>()((set) => ({
 	showToast: false,
-	toggleToast: () => set((state) => ({ showToast: !state.showToast })),
+	toastMessage: "",
+	toggleToast: (message) => set((state) => ({ showToast: !state.showToast, toastMessage: message })),
 }));

@@ -4,7 +4,7 @@ import styled from "styled-components";
 import { useToast } from "@/states/useToast";
 
 export default function ToastMessage() {
-	const { toggleToast } = useToast();
+	const { toggleToast, toastMessage } = useToast();
 
 	useEffect(() => {
 		const countdown = setTimeout(() => {
@@ -17,8 +17,8 @@ export default function ToastMessage() {
 	}, [toggleToast]);
 
 	return (
-		<StyledDiv>
-			The transaction was successfully created.
+		<StyledDiv data-testid="toast-message">
+			{toastMessage}
 			<button type="button" aria-label="Close success message" onClick={() => toggleToast()}>
 				<Image src="/images/Close.svg" width={20} height={20} alt="" />
 			</button>

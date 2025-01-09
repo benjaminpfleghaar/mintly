@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import styled from "styled-components";
 import { notFound } from "next/navigation";
 import { formatAmount } from "@/lib/utils";
@@ -7,10 +8,12 @@ import Header from "@/components/layout/Header";
 import { IconLinkProps } from "@/types/IconLinkProps";
 import GhostButton from "@/components/ui/GhostButton";
 import { useTransactions } from "@/states/useTransactions";
+import DeleteDialog from "@/components/layout/DeleteDialog";
 import TransactionDetails from "@/components/layout/TransactionDetails";
 
 export default function TransactionDetailsPage({ id }: { id: string }) {
 	const { transactions } = useTransactions();
+	const [toggleDelete, setToggleDelete] = useState(false);
 	const transaction = transactions.find((transaction) => transaction.id === id);
 
 	const iconOnLeftSide: IconLinkProps = {
@@ -25,6 +28,7 @@ export default function TransactionDetailsPage({ id }: { id: string }) {
 		href: `/${id}/edit`,
 	};
 
+	if (!transaction && toggleDelete) return null;
 	if (!transaction) notFound();
 
 	const { name, amount, category, type, date } = transaction;
@@ -38,7 +42,7 @@ export default function TransactionDetailsPage({ id }: { id: string }) {
 					<StyledData value={amount}>{formatAmount(amount)}</StyledData>
 				</StyledSection>
 				<TransactionDetails category={category} date={date} type={type} />
-				<GhostButton onClick={() => console.log("Delete")} label="Delete transaction" color="red" />
+				{toggleDelete ? <DeleteDialog transactionId={id} toggleDelete={() => setToggleDelete(false)} /> : <GhostButton onClick={() => setToggleDelete(true)} label="Delete transaction" color="red" />}
 			</StyledMain>
 		</>
 	);
