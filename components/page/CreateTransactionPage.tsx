@@ -16,7 +16,7 @@ export default function CreateTransactionPage() {
 		<>
 			<Header title="Create transaction" iconOnLeftSide={iconOnLeftSide} />
 			<StyledMain>
-				<TransactionForm type="create" />
+				<TransactionForm mode="create" />
 			</StyledMain>
 		</>
 	);

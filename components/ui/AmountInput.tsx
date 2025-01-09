@@ -1,11 +1,11 @@
 import styled from "styled-components";
 import ErrorMessage from "@/components/ui/ErrorMessage";
 
-export default function AmountInput({ value, showError }: { value?: string; showError: boolean }) {
+export default function AmountInput({ value = 0, showError }: { value?: number; showError: boolean }) {
 	return (
 		<StyledDiv>
 			<StyledLabel htmlFor="amount">Amount</StyledLabel>
-			<StyledInput $showError={showError} id="amount" type="text" name="amount" defaultValue={value} placeholder="Please enter an amount" aria-describedby={showError ? "amount-error" : ""} aria-invalid={showError} />
+			<StyledInput $showError={showError} id="amount" type="text" name="amount" defaultValue={Math.abs(value)} placeholder="Please enter an amount" aria-describedby={showError ? "amount-error" : ""} aria-invalid={showError} />
 			{showError && <ErrorMessage id="amount-error" message="Please enter a valid amount" />}
 		</StyledDiv>
 	);

@@ -16,7 +16,7 @@ export default function EditTransactionPage({ id }: { id: string }) {
 		<>
 			<Header title="Edit transaction" iconOnLeftSide={iconOnLeftSide} />
 			<StyledMain>
-				<TransactionForm type="edit" />
+				<TransactionForm id={id} mode="edit" />
 			</StyledMain>
 		</>
 	);
