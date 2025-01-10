@@ -52,7 +52,7 @@ export default function TransactionForm({ id, mode }: { id?: string; mode: "crea
 			updateTransaction(transaction);
 			toggleToast("Transaction successfully updated.");
 		}
-		router.push("/");
+		router.push(`/${id}`);
 	}
 
 	if (!transaction && mode === "edit") notFound();
