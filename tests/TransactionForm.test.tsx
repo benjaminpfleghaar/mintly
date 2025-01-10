@@ -17,25 +17,25 @@ jest.mock("next/navigation", () => ({
 
 describe("The form includes labeled, mandatory fields", () => {
 	test("Render amount field", () => {
-		render(<TransactionForm />);
+		render(<TransactionForm mode="create" />);
 		const input = screen.getByLabelText("Amount");
 		expect(input).toBeInTheDocument();
 	});
 
 	test("Render name field", () => {
-		render(<TransactionForm />);
+		render(<TransactionForm mode="create" />);
 		const input = screen.getByLabelText("Name");
 		expect(input).toBeInTheDocument();
 	});
 
 	test("Render category field", () => {
-		render(<TransactionForm />);
+		render(<TransactionForm mode="create" />);
 		const input = screen.getByLabelText("Category");
 		expect(input).toBeInTheDocument();
 	});
 
 	test("Render date field", () => {
-		render(<TransactionForm />);
+		render(<TransactionForm mode="create" />);
 		const input = screen.getByLabelText("Date");
 		expect(input).toBeInTheDocument();
 	});
@@ -43,7 +43,7 @@ describe("The form includes labeled, mandatory fields", () => {
 
 describe("The amount field displays the placeholder text 0.00 when the user has not entered any value", () => {
 	test("Render amount placeholder (0.00)", () => {
-		render(<TransactionForm />);
+		render(<TransactionForm mode="create" />);
 		const placeholder = screen.getByPlaceholderText("0.00");
 		expect(placeholder).toBeInTheDocument();
 	});
@@ -51,7 +51,7 @@ describe("The amount field displays the placeholder text 0.00 when the user has 
 
 describe("The category field uses a drop-down menu with existing categories, with the first category already preselected", () => {
 	test("Select first value (Education)", () => {
-		render(<TransactionForm />);
+		render(<TransactionForm mode="create" />);
 		const value = screen.getByDisplayValue("Education");
 		expect(value).toBeInTheDocument();
 	});
@@ -60,7 +60,7 @@ describe("The category field uses a drop-down menu with existing categories, wit
 describe("Form submission is blocked if any required field is empty, and validation messages clearly indicate the incomplete fields", () => {
 	test("Render error messages", async () => {
 		const user = userEvent.setup();
-		render(<TransactionForm />);
+		render(<TransactionForm mode="create" />);
 		const button = screen.getByRole("button", { name: "Save" });
 		expect(button).toBeInTheDocument();
 
@@ -78,7 +78,7 @@ describe("After form submission, the user is redirected back to the transactions
 		}));
 
 		const user = userEvent.setup();
-		render(<TransactionForm />);
+		render(<TransactionForm mode="create" />);
 
 		const button = screen.getByRole("button", { name: "Save" });
 		expect(button).toBeInTheDocument();
