@@ -27,9 +27,8 @@ so that **they reflect the most accurate and relevant information.**
 -   The amount field displays the placeholder text "0.00" when the user has not entered any value
 -   The form includes options to Save or Cancel the edit
 -   If the user cancels the editing, they are returned to the transaction details page without changes
--   The Save button is disabled until there are changes in the form
 -   Form submission is blocked if any required field is empty, and validation messages clearly indicate the incomplete fields
--   After form submission, a success message is displayed
+-   After form submission, the user is redirected back to the transaction details page and a success message is displayed
 
 ## Edge Cases
 

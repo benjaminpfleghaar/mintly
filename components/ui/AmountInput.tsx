@@ -5,7 +5,7 @@ export default function AmountInput({ value = 0, showError }: { value?: number; 
 	return (
 		<StyledDiv>
 			<StyledLabel htmlFor="amount">Amount</StyledLabel>
-			<StyledInput $showError={showError} id="amount" type="text" name="amount" defaultValue={Math.abs(value)} placeholder="Please enter an amount" aria-describedby={showError ? "amount-error" : ""} aria-invalid={showError} />
+			<StyledInput $showError={showError} id="amount" type="text" name="amount" defaultValue={Math.abs(value)} placeholder="0.00" aria-describedby={showError ? "amount-error" : ""} aria-invalid={showError} />
 			{showError && <ErrorMessage id="amount-error" message="Please enter a valid amount" />}
 		</StyledDiv>
 	);

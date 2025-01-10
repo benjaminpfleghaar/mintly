@@ -35,24 +35,28 @@ export default function TransactionForm({ id, mode }: { id?: string; mode: "crea
 			return;
 		}
 
+		const castingAmount = amount as string;
+		const replaceAmount = castingAmount.replace(",", ".");
+
 		const transaction = {
 			name: name as string,
 			type: type as string,
 			id: mode === "create" ? nanoid().toString() : id || "",
 			category: category as string,
 			date: `${year}-${month}-${day}`,
-			amount: parseFloat((type === "Expense" ? -amount : amount) as string),
+			amount: parseFloat((type === "Expense" ? -replaceAmount : replaceAmount) as string),
 		};
 
 		if (mode === "create") {
 			addTransaction(transaction);
 			toggleToast("Transaction successfully created.");
+			router.push("/");
 		}
 		if (mode === "edit") {
 			updateTransaction(transaction);
 			toggleToast("Transaction successfully updated.");
+			router.push(`/${id}`);
 		}
-		router.push(`/${id}`);
 	}
 
 	if (!transaction && mode === "edit") notFound();
