@@ -32,7 +32,7 @@ export default function TransactionsPage() {
 			<Header title="Transactions" iconOnRightSide={iconOnRightSide} />
 			<StyledMain>
 				<Balance transactions={transactions} />
-				{filteredTransactions.length === 0 ? <Status type="empty" /> : <TransactionsList transactions={filteredTransactions} />}
+				{transactions.length === 0 ? <Status type="empty" /> : filteredTransactions.length === 0 ? <Status type="search" /> : <TransactionsList transactions={filteredTransactions} />}
 			</StyledMain>
 		</>
 	);
