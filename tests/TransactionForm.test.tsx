@@ -4,6 +4,7 @@ import userEvent from "@testing-library/user-event";
 import { render, screen } from "@testing-library/react";
 import TransactionsPage from "@/components/page/TransactionsPage";
 import TransactionForm from "@/components/layout/TransactionForm";
+import TransactionDetailsPage from "@/components/page/TransactionDetailsPage";
 
 jest.mock("nanoid", () => ({
 	nanoid() {
@@ -94,5 +95,101 @@ describe("After form submission, the user is redirected back to the transactions
 
 		render(<TransactionsPage />);
 		expect(screen.getByTestId("toast-message")).toBeInTheDocument();
+	});
+});
+
+describe("A header shows the transaction name", () => {
+	test("Render headline (Whole Mart)", () => {
+		render(<TransactionDetailsPage id="1" />);
+		const headline = screen.getByRole("heading", { level: 1, name: "Whole Mart" });
+		expect(headline).toBeInTheDocument();
+	});
+});
+
+describe("The form is pre-filled with the transaction's existing details", () => {
+	test("Amount is pre-filled", () => {
+		render(<TransactionForm mode="edit" id="1" />);
+		const amount = screen.getByDisplayValue("52.3");
+		expect(amount).toBeInTheDocument();
+	});
+
+	test("Name is pre-filled", () => {
+		render(<TransactionForm mode="edit" id="1" />);
+		const name = screen.getByDisplayValue("Whole Mart");
+		expect(name).toBeInTheDocument();
+	});
+
+	test("Category is pre-filled", () => {
+		render(<TransactionForm mode="edit" id="1" />);
+		const category = screen.getByDisplayValue("Groceries");
+		expect(category).toBeInTheDocument();
+	});
+
+	test("Type is pre-filled", () => {
+		render(<TransactionForm mode="edit" id="1" />);
+		const type = screen.getByLabelText("Expense");
+		expect(type).toBeChecked();
+	});
+
+	test("Date is pre-filled", () => {
+		render(<TransactionForm mode="edit" id="1" />);
+		const day = screen.getByDisplayValue("5");
+		expect(day).toBeInTheDocument();
+
+		const month = screen.getByDisplayValue("9");
+		expect(month).toBeInTheDocument();
+
+		const year = screen.getByDisplayValue("2024");
+		expect(year).toBeInTheDocument();
+	});
+});
+
+describe("The form includes options to Save or Cancel the edit", () => {
+	test("Render Save button", () => {
+		render(<TransactionForm mode="edit" id="1" />);
+		const saveButton = screen.getByRole("button", { name: "Save" });
+		expect(saveButton).toBeInTheDocument();
+	});
+
+	test("Render Cancel button", () => {
+		render(<TransactionForm mode="edit" id="1" />);
+		const cancelButton = screen.getByRole("button", { name: "Cancel" });
+		expect(cancelButton).toBeInTheDocument();
+	});
+});
+
+describe("If the user cancels the editing, they are returned to the transaction details page without changes", () => {
+	test("Cancel form and redirect user", async () => {
+		const push = jest.fn();
+		(useRouter as jest.Mock).mockImplementation(() => ({
+			push,
+		}));
+
+		const user = userEvent.setup();
+		render(<TransactionForm mode="edit" id="1" />);
+
+		const button = screen.getByRole("button", { name: "Cancel" });
+		expect(button).toBeInTheDocument();
+
+		await user.click(button);
+		expect(push).toHaveBeenCalledWith("/1");
+	});
+});
+
+describe("After form submission, the user is redirected back to the transaction details page and a success message is displayed", () => {
+	test("Submit form and redirect user", async () => {
+		const push = jest.fn();
+		(useRouter as jest.Mock).mockImplementation(() => ({
+			push,
+		}));
+
+		const user = userEvent.setup();
+		render(<TransactionForm mode="edit" id="1" />);
+
+		const button = screen.getByRole("button", { name: "Save" });
+		expect(button).toBeInTheDocument();
+
+		await user.click(button);
+		expect(push).toHaveBeenCalledWith("/1");
 	});
 });
