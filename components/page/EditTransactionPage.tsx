@@ -5,18 +5,18 @@ import Header from "@/components/layout/Header";
 import { IconLinkProps } from "@/types/IconLinkProps";
 import TransactionForm from "@/components/layout/TransactionForm";
 
-export default function CreateTransactionPage() {
+export default function EditTransactionPage({ id }: { id: string }) {
 	const iconOnLeftSide: IconLinkProps = {
 		icon: "Back",
-		label: "Back to transactions",
-		href: "/",
+		label: "Back to transaction",
+		href: `/${id}`,
 	};
 
 	return (
 		<>
-			<Header title="Create transaction" iconOnLeftSide={iconOnLeftSide} />
+			<Header title="Edit transaction" iconOnLeftSide={iconOnLeftSide} />
 			<StyledMain>
-				<TransactionForm mode="create" />
+				<TransactionForm id={id} mode="edit" />
 			</StyledMain>
 		</>
 	);

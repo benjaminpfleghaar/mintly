@@ -4,14 +4,17 @@ import { useState } from "react";
 import styled from "styled-components";
 import { notFound } from "next/navigation";
 import { formatAmount } from "@/lib/utils";
+import { useToast } from "@/states/useToast";
 import Header from "@/components/layout/Header";
 import { IconLinkProps } from "@/types/IconLinkProps";
 import GhostButton from "@/components/ui/GhostButton";
+import ToastMessage from "@/components/ui/ToastMessage";
 import { useTransactions } from "@/states/useTransactions";
 import DeleteDialog from "@/components/layout/DeleteDialog";
 import TransactionDetails from "@/components/layout/TransactionDetails";
 
 export default function TransactionDetailsPage({ id }: { id: string }) {
+	const { showToast } = useToast();
 	const { transactions } = useTransactions();
 	const [toggleDelete, setToggleDelete] = useState(false);
 	const transaction = transactions.find((transaction) => transaction.id === id);
@@ -35,6 +38,7 @@ export default function TransactionDetailsPage({ id }: { id: string }) {
 
 	return (
 		<>
+			{showToast && <ToastMessage />}
 			<Header title={name} iconOnLeftSide={iconOnLeftSide} iconOnRightSide={iconOnRightSide} />
 			<StyledMain>
 				<StyledSection>

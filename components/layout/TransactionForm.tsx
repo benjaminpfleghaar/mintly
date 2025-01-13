@@ -1,22 +1,24 @@
 import { nanoid } from "nanoid";
 import { useState } from "react";
 import styled from "styled-components";
-import { useRouter } from "next/navigation";
 import { useToast } from "@/states/useToast";
 import TypeRadio from "@/components/ui/TypeRadio";
 import NameInput from "@/components/ui/NameInput";
 import DateSelect from "@/components/ui/DateSelect";
+import { notFound, useRouter } from "next/navigation";
+import AmountInput from "@/components/ui/AmountInput";
 import GhostButton from "@/components/ui/GhostButton";
 import SubmitButton from "@/components/ui/SubmitButton";
 import AmountControl from "@/components/ui/AmountControl";
 import { useTransactions } from "@/states/useTransactions";
 import CategorySelect from "@/components/ui/CategorySelect";
 
-export default function TransactionForm() {
+export default function TransactionForm({ id, mode }: { id?: string; mode: "create" | "edit" }) {
 	const router = useRouter();
 	const { toggleToast } = useToast();
-	const { addTransaction } = useTransactions();
 	const [errors, setErrors] = useState<string[]>([]);
+	const { transactions, addTransaction, updateTransaction } = useTransactions();
+	const transaction = transactions.find((transaction) => transaction.id === id);
 
 	function handleFormSubmit(event: React.FormEvent<HTMLFormElement>) {
 		event.preventDefault();
@@ -33,33 +35,62 @@ export default function TransactionForm() {
 			return;
 		}
 
+		const castingAmount = amount as string;
+		const replaceAmount = castingAmount.replace(",", ".");
+
 		const transaction = {
 			name: name as string,
 			type: type as string,
-			id: nanoid().toString(),
+			id: mode === "create" ? nanoid().toString() : id || "",
 			category: category as string,
 			date: `${year}-${month}-${day}`,
-			amount: parseFloat((type === "Expense" ? -amount : amount) as string),
+			amount: parseFloat((type === "Expense" ? -replaceAmount : replaceAmount) as string),
 		};
 
-		addTransaction(transaction);
-		toggleToast("Transaction successfully created.");
-		router.push("/");
+		if (mode === "create") {
+			addTransaction(transaction);
+			toggleToast("Transaction successfully created.");
+			router.push("/");
+		}
+		if (mode === "edit") {
+			updateTransaction(transaction);
+			toggleToast("Transaction successfully updated.");
+			router.push(`/${id}`);
+		}
 	}
 
-	return (
-		<StyledForm onSubmit={handleFormSubmit}>
-			<AmountControl showError={errors.includes("amount")} />
-			<NameInput showError={errors.includes("name")} />
-			<CategorySelect />
-			<TypeRadio />
-			<DateSelect />
-			<StyledDiv>
-				<SubmitButton label="Save" />
-				<GhostButton onClick={() => router.push("/")} label="Cancel" />
-			</StyledDiv>
-		</StyledForm>
-	);
+	if (!transaction && mode === "edit") notFound();
+
+	const { name, amount, category, type, date } = transaction || {};
+
+	if (mode === "create")
+		return (
+			<StyledForm onSubmit={handleFormSubmit}>
+				<AmountControl showError={errors.includes("amount")} />
+				<NameInput showError={errors.includes("name")} />
+				<CategorySelect />
+				<TypeRadio />
+				<DateSelect />
+				<StyledDiv>
+					<SubmitButton label="Save" />
+					<GhostButton onClick={() => router.push("/")} label="Cancel" />
+				</StyledDiv>
+			</StyledForm>
+		);
+	if (mode === "edit")
+		return (
+			<StyledForm onSubmit={handleFormSubmit}>
+				<AmountInput value={amount} showError={errors.includes("amount")} />
+				<NameInput value={name} showError={errors.includes("name")} />
+				<CategorySelect value={category} />
+				<TypeRadio value={type} />
+				<DateSelect value={date} />
+				<StyledDiv>
+					<SubmitButton label="Save" />
+					<GhostButton onClick={() => router.push(`/${id}`)} label="Cancel" />
+				</StyledDiv>
+			</StyledForm>
+		);
 }
 
 const StyledForm = styled.form`
