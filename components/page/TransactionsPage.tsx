@@ -31,8 +31,19 @@ export default function TransactionsPage() {
 			<Header title="Transactions" iconOnRightSide={iconOnRightSide} />
 			<StyledMain>
 				<Balance transactions={filteredTransactions} />
-				<Search />
-				{transactions.length === 0 ? <Status type="empty" /> : filteredTransactions.length === 0 ? <Status type="search" /> : <TransactionsList transactions={filteredTransactions} />}
+				{transactions.length === 0 ? (
+					<Status type="empty" />
+				) : filteredTransactions.length === 0 ? (
+					<>
+						<Search />
+						<Status type="search" />
+					</>
+				) : (
+					<>
+						<Search />
+						<TransactionsList transactions={filteredTransactions} />
+					</>
+				)}
 			</StyledMain>
 		</>
 	);

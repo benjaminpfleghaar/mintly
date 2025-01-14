@@ -26,7 +26,7 @@ export default function Status({ type }: { type: "notFound" | "empty" | "search"
 			icon: "Empty",
 			headline: "No transactions available",
 			paragraph: "Start by adding a new one",
-			button: <OutlineButton onClick={() => console.log("Create transaction")} label="Create transaction" />,
+			button: <OutlineButton onClick={() => router.push("/create")} label="Create transaction" />,
 		},
 		search: {
 			icon: "Search",
