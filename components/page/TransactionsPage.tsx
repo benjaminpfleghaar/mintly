@@ -1,7 +1,9 @@
 "use client";
 
+import { useState } from "react";
 import styled from "styled-components";
 import { useToast } from "@/states/useToast";
+import { categories } from "@/data/categories";
 import Filter from "@/components/layout/Filter";
 import Header from "@/components/layout/Header";
 import Status from "@/components/layout/Status";
@@ -9,16 +11,18 @@ import Search from "@/components/ui/SearchInput";
 import Balance from "@/components/layout/Balance";
 import { useSearchParams } from "next/navigation";
 import { IconLinkProps } from "@/types/IconLinkProps";
-import { getSearchedTransactions } from "@/lib/utils";
 import ToastMessage from "@/components/ui/ToastMessage";
 import { useTransactions } from "@/states/useTransactions";
 import TransactionsList from "@/components/layout/TransactionsList";
+import { getSearchedTransactions, getFilteredTransactions } from "@/lib/utils";
 
 export default function TransactionsPage() {
 	const { showToast } = useToast();
 	const searchParams = useSearchParams();
 	const { transactions } = useTransactions();
-	const searchedTransactions = getSearchedTransactions(transactions, searchParams.get("search") || "");
+	const [filters, setFilters] = useState(categories);
+	const filteredTransactions = getFilteredTransactions(transactions, filters);
+	const searchedTransactions = getSearchedTransactions(filteredTransactions, searchParams.get("search") || "");
 
 	const iconOnRightSide: IconLinkProps = {
 		icon: "Add",
@@ -37,7 +41,6 @@ export default function TransactionsPage() {
 				) : searchedTransactions.length === 0 ? (
 					<>
 						<Search />
-						<Filter />
 						<Status type="search" />
 					</>
 				) : (
