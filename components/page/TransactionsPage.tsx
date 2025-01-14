@@ -1,6 +1,5 @@
 "use client";
 
-import { useState } from "react";
 import styled from "styled-components";
 import { useToast } from "@/states/useToast";
 import Header from "@/components/layout/Header";
@@ -18,8 +17,7 @@ export default function TransactionsPage() {
 	const { showToast } = useToast();
 	const searchParams = useSearchParams();
 	const { transactions } = useTransactions();
-	const [query, setQuery] = useState(searchParams.get("search") || "");
-	const filteredTransactions = getFilteredTransactions(transactions, query);
+	const filteredTransactions = getFilteredTransactions(transactions, searchParams.get("search") || "");
 
 	const iconOnRightSide: IconLinkProps = {
 		icon: "Add",
@@ -33,7 +31,7 @@ export default function TransactionsPage() {
 			<Header title="Transactions" iconOnRightSide={iconOnRightSide} />
 			<StyledMain>
 				<Balance transactions={transactions} />
-				<Search query={query} setQuery={setQuery} />
+				<Search />
 				{transactions.length === 0 ? <Status type="empty" /> : filteredTransactions.length === 0 ? <Status type="search" /> : <TransactionsList transactions={filteredTransactions} />}
 			</StyledMain>
 		</>

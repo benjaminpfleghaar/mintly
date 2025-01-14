@@ -74,6 +74,7 @@ The application uses _Next.js_ as it's foundation.
 -   react
 -   react-dom
 -   styled-components
+-   use-debounce
 -   zustand
 -   nanoid
 -   jest
