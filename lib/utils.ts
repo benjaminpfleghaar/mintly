@@ -24,7 +24,7 @@ export function getTotalTransactionsAmount(transactions: Transactions[]): number
 }
 
 // Filter transactions based on search query
-export function getFilteredTransactions(transactions: Transactions[], query: string): Transactions[] {
+export function getSearchedTransactions(transactions: Transactions[], query: string): Transactions[] {
 	return transactions.filter(({ name }) => name.toLocaleLowerCase().includes(query.toLocaleLowerCase()));
 }
 

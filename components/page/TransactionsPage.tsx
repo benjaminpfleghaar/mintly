@@ -9,7 +9,7 @@ import Search from "@/components/ui/SearchInput";
 import Balance from "@/components/layout/Balance";
 import { useSearchParams } from "next/navigation";
 import { IconLinkProps } from "@/types/IconLinkProps";
-import { getFilteredTransactions } from "@/lib/utils";
+import { getSearchedTransactions } from "@/lib/utils";
 import ToastMessage from "@/components/ui/ToastMessage";
 import { useTransactions } from "@/states/useTransactions";
 import TransactionsList from "@/components/layout/TransactionsList";
@@ -18,7 +18,7 @@ export default function TransactionsPage() {
 	const { showToast } = useToast();
 	const searchParams = useSearchParams();
 	const { transactions } = useTransactions();
-	const filteredTransactions = getFilteredTransactions(transactions, searchParams.get("search") || "");
+	const searchedTransactions = getSearchedTransactions(transactions, searchParams.get("search") || "");
 
 	const iconOnRightSide: IconLinkProps = {
 		icon: "Add",
@@ -31,10 +31,10 @@ export default function TransactionsPage() {
 			{showToast && <ToastMessage />}
 			<Header title="Transactions" iconOnRightSide={iconOnRightSide} />
 			<StyledMain>
-				<Balance transactions={filteredTransactions} />
+				<Balance transactions={searchedTransactions} />
 				{transactions.length === 0 ? (
 					<Status type="empty" />
-				) : filteredTransactions.length === 0 ? (
+				) : searchedTransactions.length === 0 ? (
 					<>
 						<Search />
 						<Filter />
@@ -44,7 +44,7 @@ export default function TransactionsPage() {
 					<>
 						<Search />
 						<Filter />
-						<TransactionsList transactions={filteredTransactions} />
+						<TransactionsList transactions={searchedTransactions} />
 					</>
 				)}
 			</StyledMain>
