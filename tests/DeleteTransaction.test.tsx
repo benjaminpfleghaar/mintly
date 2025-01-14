@@ -7,6 +7,10 @@ import TransactionDetailsPage from "@/components/page/TransactionDetailsPage";
 
 jest.mock("next/navigation", () => ({
 	useRouter: jest.fn(),
+	useSearchParams: () => ({
+		get: jest.fn(),
+	}),
+	usePathname: jest.fn(),
 }));
 
 describe("Clicking the delete button on the transaction details page triggers a confirmation dialog", () => {

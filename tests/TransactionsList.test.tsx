@@ -3,6 +3,21 @@ import { render, screen } from "@testing-library/react";
 import HorizontalRow from "@/components/layout/HorizontalRow";
 import TransactionsPage from "@/components/page/TransactionsPage";
 
+const mockUseSearchParams = jest.fn();
+
+jest.mock("next/navigation", () => ({
+	useRouter: () => ({
+		push: jest.fn(),
+		replace: jest.fn(),
+	}),
+	useSearchParams: () => ({
+		get: () => {
+			return mockUseSearchParams();
+		},
+	}),
+	usePathname: jest.fn(),
+}));
+
 describe("The transaction list has a clear header indicating its purpose", () => {
 	test("Render headline (Transactions)", () => {
 		render(<TransactionsPage />);
@@ -51,5 +66,43 @@ describe("A button that redirects the user to the create transaction form is dis
 		render(<TransactionsPage />);
 		const link = screen.getByLabelText("Add new transaction");
 		expect(link).toBeInTheDocument();
+	});
+});
+
+describe("A search field is displayed below the account balance on the transactions list page", () => {
+	test("Render search field", () => {
+		render(<TransactionsPage />);
+		const input = screen.getByPlaceholderText("Search...");
+		expect(input).toBeInTheDocument();
+	});
+});
+
+describe("The search results display only transactions that match the search criteria", () => {
+	test("Display filtered transactions based on query: Life", () => {
+		mockUseSearchParams.mockImplementation(() => "Life");
+
+		render(<TransactionsPage />);
+		const transaction = screen.getByText("Life Insurance");
+		expect(transaction).toBeInTheDocument();
+	});
+});
+
+describe("A clear button is available in the search field to reset the search and display all transactions again", () => {
+	test("Render clear button", () => {
+		mockUseSearchParams.mockImplementation(() => "Life");
+
+		render(<TransactionsPage />);
+		const cancelButton = screen.getByRole("button", { name: "Reset search" });
+		expect(cancelButton).toBeInTheDocument();
+	});
+});
+
+describe("If no transactions match the search, a message should appear saying “No results found”", () => {
+	test("Display empty state", () => {
+		mockUseSearchParams.mockImplementation(() => "x");
+
+		render(<TransactionsPage />);
+		const transaction = screen.getByRole("heading", { level: 3, name: "No matches found" });
+		expect(transaction).toBeInTheDocument();
 	});
 });

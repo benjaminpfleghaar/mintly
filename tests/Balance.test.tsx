@@ -3,6 +3,17 @@ import Balance from "@/components/layout/Balance";
 import { render, screen } from "@testing-library/react";
 import TransactionsPage from "@/components/page/TransactionsPage";
 
+jest.mock("next/navigation", () => ({
+	useRouter: () => ({
+		push: jest.fn(),
+		replace: jest.fn(),
+	}),
+	useSearchParams: () => ({
+		get: jest.fn(),
+	}),
+	usePathname: () => {},
+}));
+
 describe("The account balance is displayed prominently at the top of the transaction list", () => {
 	test("Render balance", () => {
 		render(<TransactionsPage />);
