@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { useRef, useState } from "react";
+import { useState } from "react";
 import styled from "styled-components";
 import { useDebouncedCallback } from "use-debounce";
 import { useSearchParams, usePathname, useRouter } from "next/navigation";
@@ -8,8 +8,8 @@ export default function Search() {
 	const pathname = usePathname();
 	const { replace } = useRouter();
 	const searchParams = useSearchParams();
-	const searchInput = useRef<HTMLInputElement>(null);
-	const [showCancelButton, setShowCancelButton] = useState(false);
+	const [searchTerm, setSearchTerm] = useState(searchParams.get("search") || "");
+	const [showCancelButton, setShowCancelButton] = useState(!!searchTerm);
 
 	const handleDebounce = useDebouncedCallback((term) => {
 		const params = new URLSearchParams(searchParams);
@@ -24,17 +24,13 @@ export default function Search() {
 	}, 300);
 
 	function handleSearch(term: string) {
-		if (term) {
-			setShowCancelButton(true);
-		} else {
-			setShowCancelButton(false);
-		}
-
+		setSearchTerm(term);
+		setShowCancelButton(!!term);
 		handleDebounce(term);
 	}
 
 	function handleReset() {
-		if (searchInput.current) searchInput.current.value = "";
+		setSearchTerm("");
 		setShowCancelButton(false);
 		replace(`${pathname}`);
 	}
@@ -46,7 +42,7 @@ export default function Search() {
 					<Image src={`/images/cancel.svg`} width={20} height={20} alt="" />
 				</StyledButton>
 			)}
-			<StyledInput type="text" ref={searchInput} defaultValue={searchParams.get("search")?.toString()} onChange={(e) => handleSearch(e.target.value)} placeholder="Search..." />
+			<StyledInput type="text" value={searchTerm} onChange={(e) => handleSearch(e.target.value)} placeholder="Search..." />
 		</StyledDiv>
 	);
 }
