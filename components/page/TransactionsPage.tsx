@@ -2,6 +2,7 @@
 
 import styled from "styled-components";
 import { useToast } from "@/states/useToast";
+import Filter from "@/components/layout/Filter";
 import Header from "@/components/layout/Header";
 import Status from "@/components/layout/Status";
 import Search from "@/components/ui/SearchInput";
@@ -36,11 +37,13 @@ export default function TransactionsPage() {
 				) : filteredTransactions.length === 0 ? (
 					<>
 						<Search />
+						<Filter />
 						<Status type="search" />
 					</>
 				) : (
 					<>
 						<Search />
+						<Filter />
 						<TransactionsList transactions={filteredTransactions} />
 					</>
 				)}
