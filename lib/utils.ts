@@ -24,8 +24,8 @@ export function getTotalTransactionsAmount(transactions: Transactions[]): number
 }
 
 // Filter transactions based on categories
-export function getFilteredTransactions(transactions: Transactions[], filter: string[]): Transactions[] {
-	return transactions.filter(({ category }) => filter.includes(category));
+export function getFilteredTransactions(transactions: Transactions[], filter: string): Transactions[] {
+	return transactions.filter(({ category }) => category.includes(filter));
 }
 
 // Search transactions based on search query
