@@ -1,9 +1,11 @@
 "use client";
 
+import { useState } from "react";
 import styled from "styled-components";
 import { useToast } from "@/states/useToast";
 import Header from "@/components/layout/Header";
 import Status from "@/components/layout/Status";
+import Search from "@/components/ui/SearchInput";
 import Balance from "@/components/layout/Balance";
 import { useSearchParams } from "next/navigation";
 import { IconLinkProps } from "@/types/IconLinkProps";
@@ -14,10 +16,9 @@ import TransactionsList from "@/components/layout/TransactionsList";
 
 export default function TransactionsPage() {
 	const { showToast } = useToast();
-	const { transactions } = useTransactions();
-
 	const searchParams = useSearchParams();
-	const query = searchParams.get("search") || "";
+	const { transactions } = useTransactions();
+	const [query, setQuery] = useState(searchParams.get("search") || "");
 	const filteredTransactions = getFilteredTransactions(transactions, query);
 
 	const iconOnRightSide: IconLinkProps = {
@@ -32,6 +33,7 @@ export default function TransactionsPage() {
 			<Header title="Transactions" iconOnRightSide={iconOnRightSide} />
 			<StyledMain>
 				<Balance transactions={transactions} />
+				<Search query={query} setQuery={setQuery} />
 				{transactions.length === 0 ? <Status type="empty" /> : filteredTransactions.length === 0 ? <Status type="search" /> : <TransactionsList transactions={filteredTransactions} />}
 			</StyledMain>
 		</>
