@@ -30,7 +30,7 @@ export default function TransactionsPage() {
 			{showToast && <ToastMessage />}
 			<Header title="Transactions" iconOnRightSide={iconOnRightSide} />
 			<StyledMain>
-				<Balance transactions={transactions} />
+				<Balance transactions={filteredTransactions} />
 				<Search />
 				{transactions.length === 0 ? <Status type="empty" /> : filteredTransactions.length === 0 ? <Status type="search" /> : <TransactionsList transactions={filteredTransactions} />}
 			</StyledMain>
