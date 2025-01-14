@@ -23,6 +23,11 @@ export function getTotalTransactionsAmount(transactions: Transactions[]): number
 	return transactions.reduce((result, transaction) => result + transaction.amount, 0) || 0;
 }
 
+// Filter transactions based on search query
+export function getFilteredTransactions(transactions: Transactions[], query: string): Transactions[] {
+	return transactions.filter(({ name }) => name.toLocaleLowerCase().includes(query.toLocaleLowerCase()));
+}
+
 // Sort transactions by date 2024-09-05 < 2024-09-10
 // and group them by date 2024-09-05: [{...}, {...}, ...]
 export function getGroupedTransactions(transactions: Transactions[]): { [key: string]: Transactions[] } {

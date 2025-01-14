@@ -14,6 +14,10 @@ jest.mock("nanoid", () => ({
 
 jest.mock("next/navigation", () => ({
 	useRouter: jest.fn(),
+	useSearchParams: () => ({
+		get: jest.fn(),
+	}),
+	usePathname: jest.fn(),
 }));
 
 describe("The form includes labeled, mandatory fields", () => {

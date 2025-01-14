@@ -4,15 +4,20 @@ import styled from "styled-components";
 import { useToast } from "@/states/useToast";
 import Header from "@/components/layout/Header";
 import Status from "@/components/layout/Status";
+import Search from "@/components/ui/SearchInput";
 import Balance from "@/components/layout/Balance";
+import { useSearchParams } from "next/navigation";
 import { IconLinkProps } from "@/types/IconLinkProps";
+import { getFilteredTransactions } from "@/lib/utils";
 import ToastMessage from "@/components/ui/ToastMessage";
 import { useTransactions } from "@/states/useTransactions";
 import TransactionsList from "@/components/layout/TransactionsList";
 
 export default function TransactionsPage() {
 	const { showToast } = useToast();
+	const searchParams = useSearchParams();
 	const { transactions } = useTransactions();
+	const filteredTransactions = getFilteredTransactions(transactions, searchParams.get("search") || "");
 
 	const iconOnRightSide: IconLinkProps = {
 		icon: "Add",
@@ -26,7 +31,8 @@ export default function TransactionsPage() {
 			<Header title="Transactions" iconOnRightSide={iconOnRightSide} />
 			<StyledMain>
 				<Balance transactions={transactions} />
-				{transactions.length === 0 ? <Status type="empty" /> : <TransactionsList transactions={transactions} />}
+				<Search />
+				{transactions.length === 0 ? <Status type="empty" /> : filteredTransactions.length === 0 ? <Status type="search" /> : <TransactionsList transactions={filteredTransactions} />}
 			</StyledMain>
 		</>
 	);
