@@ -25,7 +25,7 @@ export function getTotalTransactionsAmount(transactions: Transactions[]): number
 
 // Filter transactions based on search query
 export function getFilteredTransactions(transactions: Transactions[], query: string): Transactions[] {
-	return transactions.filter(({ name }) => name.includes(query));
+	return transactions.filter(({ name }) => name.toLocaleLowerCase().includes(query.toLocaleLowerCase()));
 }
 
 // Sort transactions by date 2024-09-05 < 2024-09-10
