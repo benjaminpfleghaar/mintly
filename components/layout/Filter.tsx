@@ -25,7 +25,7 @@ export default function Filter({ filter, handleFilter }: { filter: string; handl
 	);
 }
 
-const StyledFilter = styled.div`
+const StyledFilter = styled.section`
 	position: relative;
 `;
 const StyledGradient = styled.div`
