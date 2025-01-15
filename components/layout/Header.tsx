@@ -24,6 +24,7 @@ export default function Header({ title, iconOnLeftSide, iconOnRightSide }: Heade
 
 const StyledHeader = styled.header`
 	top: 0;
+	z-index: 1;
 	width: 100%;
 	position: fixed;
 	backdrop-filter: blur(var(--spacing-8));

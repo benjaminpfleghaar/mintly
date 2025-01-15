@@ -1,5 +1,7 @@
 import "@testing-library/jest-dom";
 import { render, screen } from "@testing-library/react";
+import "./matchMedia.mock";
+import userEvent from "@testing-library/user-event";
 import HorizontalRow from "@/components/layout/HorizontalRow";
 import TransactionsPage from "@/components/page/TransactionsPage";
 
@@ -16,6 +18,16 @@ jest.mock("next/navigation", () => ({
 		},
 	}),
 	usePathname: jest.fn(),
+}));
+
+window.IntersectionObserver = jest.fn().mockImplementation(() => ({
+	observe: jest.fn(),
+	disconnect: jest.fn(),
+}));
+global.ResizeObserver = jest.fn().mockImplementation(() => ({
+	observe: jest.fn(),
+	unobserve: jest.fn(),
+	disconnect: jest.fn(),
 }));
 
 describe("The transaction list has a clear header indicating its purpose", () => {
@@ -104,5 +116,54 @@ describe("If no transactions match the search, a message should appear saying â€
 		render(<TransactionsPage />);
 		const transaction = screen.getByRole("heading", { level: 3, name: "No matches found" });
 		expect(transaction).toBeInTheDocument();
+	});
+});
+
+describe("The transactions list includes a scrollable section of filter options", () => {
+	test("Render filter", () => {
+		render(<TransactionsPage />);
+		expect(screen.getByTestId("filter")).toBeInTheDocument();
+	});
+});
+
+describe("Users can filter transactions by category", () => {
+	test("Render filtered transactions", async () => {
+		mockUseSearchParams.mockImplementation(() => "");
+
+		const user = userEvent.setup();
+		render(<TransactionsPage />);
+
+		const button = screen.getByRole("button", { name: "Entertainment" });
+		expect(button).toBeInTheDocument();
+
+		await user.click(button);
+
+		const filteredTransaction = screen.getByText("Movie Palace");
+		expect(filteredTransaction).toBeInTheDocument();
+	});
+});
+
+describe("Only one category filter can be selected at a time", () => {
+	test("Only one active filter", () => {
+		render(<TransactionsPage />);
+		const filter = screen.getAllByRole("button", { current: true });
+		expect(filter).toHaveLength(1);
+	});
+});
+
+describe("The transactions list and balance updates in real-time as filters are applied or removed", () => {
+	test("Update balance immediately", async () => {
+		mockUseSearchParams.mockImplementation(() => "");
+
+		const user = userEvent.setup();
+		render(<TransactionsPage />);
+
+		const button = screen.getByRole("button", { name: "Entertainment" });
+		expect(button).toBeInTheDocument();
+
+		await user.click(button);
+
+		const amount = screen.getAllByText(/20.00/i);
+		expect(amount).toHaveLength(2);
 	});
 });

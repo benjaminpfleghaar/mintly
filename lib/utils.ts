@@ -23,8 +23,13 @@ export function getTotalTransactionsAmount(transactions: Transactions[]): number
 	return transactions.reduce((result, transaction) => result + transaction.amount, 0) || 0;
 }
 
-// Filter transactions based on search query
-export function getFilteredTransactions(transactions: Transactions[], query: string): Transactions[] {
+// Filter transactions based on categories
+export function getFilteredTransactions(transactions: Transactions[], filter: string): Transactions[] {
+	return transactions.filter(({ category }) => category.includes(filter));
+}
+
+// Search transactions based on search query
+export function getSearchedTransactions(transactions: Transactions[], query: string): Transactions[] {
 	return transactions.filter(({ name }) => name.toLocaleLowerCase().includes(query.toLocaleLowerCase()));
 }
 

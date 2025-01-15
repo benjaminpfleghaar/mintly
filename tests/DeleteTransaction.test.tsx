@@ -2,6 +2,7 @@ import "@testing-library/jest-dom";
 import { useRouter } from "next/navigation";
 import userEvent from "@testing-library/user-event";
 import { render, screen } from "@testing-library/react";
+import "./matchMedia.mock";
 import TransactionsPage from "@/components/page/TransactionsPage";
 import TransactionDetailsPage from "@/components/page/TransactionDetailsPage";
 
@@ -11,6 +12,16 @@ jest.mock("next/navigation", () => ({
 		get: jest.fn(),
 	}),
 	usePathname: jest.fn(),
+}));
+
+window.IntersectionObserver = jest.fn().mockImplementation(() => ({
+	observe: jest.fn(),
+	disconnect: jest.fn(),
+}));
+global.ResizeObserver = jest.fn().mockImplementation(() => ({
+	observe: jest.fn(),
+	unobserve: jest.fn(),
+	disconnect: jest.fn(),
 }));
 
 describe("Clicking the delete button on the transaction details page triggers a confirmation dialog", () => {

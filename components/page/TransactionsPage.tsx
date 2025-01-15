@@ -1,23 +1,27 @@
 "use client";
 
+import { useState } from "react";
 import styled from "styled-components";
 import { useToast } from "@/states/useToast";
+import Filter from "@/components/layout/Filter";
 import Header from "@/components/layout/Header";
 import Status from "@/components/layout/Status";
 import Search from "@/components/ui/SearchInput";
 import Balance from "@/components/layout/Balance";
 import { useSearchParams } from "next/navigation";
 import { IconLinkProps } from "@/types/IconLinkProps";
-import { getFilteredTransactions } from "@/lib/utils";
 import ToastMessage from "@/components/ui/ToastMessage";
 import { useTransactions } from "@/states/useTransactions";
 import TransactionsList from "@/components/layout/TransactionsList";
+import { getSearchedTransactions, getFilteredTransactions } from "@/lib/utils";
 
 export default function TransactionsPage() {
 	const { showToast } = useToast();
 	const searchParams = useSearchParams();
 	const { transactions } = useTransactions();
-	const filteredTransactions = getFilteredTransactions(transactions, searchParams.get("search") || "");
+	const [filter, setFilter] = useState("");
+	const filteredTransactions = getFilteredTransactions(transactions, filter);
+	const searchedTransactions = getSearchedTransactions(filteredTransactions, searchParams.get("search") || "");
 
 	const iconOnRightSide: IconLinkProps = {
 		icon: "Add",
@@ -25,23 +29,35 @@ export default function TransactionsPage() {
 		href: "/create",
 	};
 
+	function handleFilter(category?: string) {
+		setFilter(category || "");
+	}
+
 	return (
 		<>
 			{showToast && <ToastMessage />}
 			<Header title="Transactions" iconOnRightSide={iconOnRightSide} />
 			<StyledMain>
-				<Balance transactions={filteredTransactions} />
+				<Balance transactions={searchedTransactions} />
 				{transactions.length === 0 ? (
 					<Status type="empty" />
 				) : filteredTransactions.length === 0 ? (
 					<>
 						<Search />
+						<Filter filter={filter} handleFilter={handleFilter} />
+						<Status type="filter" onClick={() => handleFilter()} />
+					</>
+				) : searchedTransactions.length === 0 ? (
+					<>
+						<Search />
+						<Filter filter={filter} handleFilter={handleFilter} />
 						<Status type="search" />
 					</>
 				) : (
 					<>
 						<Search />
-						<TransactionsList transactions={filteredTransactions} />
+						<Filter filter={filter} handleFilter={handleFilter} />
+						<TransactionsList transactions={searchedTransactions} />
 					</>
 				)}
 			</StyledMain>

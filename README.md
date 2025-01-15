@@ -46,7 +46,7 @@ The complete styleguide including fonts, colors, icons and general design princi
 |  5  | [Delete Transaction](./assets/features/05_delete-transaction/README.md)   | [Link](./assets/features/05_delete-transaction/wireframe.png)  | [Link](./assets/features/05_delete-transaction/layout.png)  | [Link](./assets/features/05_delete-transaction/components.png)  |    &check;     | &check; |  &check;  |
 |  6  | [Update Transaction](./assets/features/06_update-transaction/README.md)   | [Link](./assets/features/06_update-transaction/wireframe.png)  | [Link](./assets/features/06_update-transaction/layout.png)  | [Link](./assets/features/06_update-transaction/components.png)  |    &check;     | &check; |  &check;  |
 |  7  | [Search Transactions](./assets/features/07_search-transactions/README.md) | [Link](./assets/features/07_search-transactions/wireframe.png) | [Link](./assets/features/07_search-transactions/layout.png) | [Link](./assets/features/07_search-transactions/components.png) |    &check;     | &check; |  &check;  |
-|  8  | [Filter Transactions](./assets/features/08_filter-transactions/README.md) | [Link](./assets/features/08_filter-transactions/wireframe.png) | [Link](./assets/features/08_filter-transactions/layout.png) | [Link](./assets/features/08_filter-transactions/components.png) |       -        |    -    |     -     |
+|  8  | [Filter Transactions](./assets/features/08_filter-transactions/README.md) | [Link](./assets/features/08_filter-transactions/wireframe.png) | [Link](./assets/features/08_filter-transactions/layout.png) | [Link](./assets/features/08_filter-transactions/components.png) |    &check;     | &check; |  &check;  |
 
 ## Backlog
 
@@ -74,6 +74,7 @@ The application uses _Next.js_ as it's foundation.
 -   react
 -   react-dom
 -   styled-components
+-   embla-carousel-react
 -   use-debounce
 -   zustand
 -   nanoid

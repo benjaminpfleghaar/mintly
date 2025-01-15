@@ -1,6 +1,7 @@
 import "@testing-library/jest-dom";
-import Balance from "@/components/layout/Balance";
 import { render, screen } from "@testing-library/react";
+import "./matchMedia.mock";
+import Balance from "@/components/layout/Balance";
 import TransactionsPage from "@/components/page/TransactionsPage";
 
 jest.mock("next/navigation", () => ({
@@ -12,6 +13,16 @@ jest.mock("next/navigation", () => ({
 		get: jest.fn(),
 	}),
 	usePathname: () => {},
+}));
+
+window.IntersectionObserver = jest.fn().mockImplementation(() => ({
+	observe: jest.fn(),
+	disconnect: jest.fn(),
+}));
+global.ResizeObserver = jest.fn().mockImplementation(() => ({
+	observe: jest.fn(),
+	unobserve: jest.fn(),
+	disconnect: jest.fn(),
 }));
 
 describe("The account balance is displayed prominently at the top of the transaction list", () => {

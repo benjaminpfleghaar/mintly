@@ -12,7 +12,7 @@ interface StatusCasesProps {
 	};
 }
 
-export default function Status({ type }: { type: "notFound" | "empty" | "search" | "filter" }) {
+export default function Status({ type, onClick = () => {} }: { type: "notFound" | "empty" | "search" | "filter"; onClick?: () => void }) {
 	const router = useRouter();
 
 	const statusCases: StatusCasesProps = {
@@ -37,7 +37,7 @@ export default function Status({ type }: { type: "notFound" | "empty" | "search"
 			icon: "Filter",
 			headline: "No transactions in this category",
 			paragraph: "Try a different or reset your filter",
-			button: <OutlineButton onClick={() => console.log("Reset filter")} label="Reset filter" />,
+			button: <OutlineButton onClick={onClick} label="Reset filter" />,
 		},
 	} as const;
 
