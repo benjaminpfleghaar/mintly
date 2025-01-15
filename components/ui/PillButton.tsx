@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export default function PillButton({ onClick, label, active }: { onClick: () => void; label: string; active?: boolean }) {
 	return (
-		<StyledButton type="button" onClick={onClick} $active={active}>
+		<StyledButton type="button" onClick={onClick} $active={active} aria-current={active}>
 			{label}
 		</StyledButton>
 	);

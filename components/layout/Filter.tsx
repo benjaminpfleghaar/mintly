@@ -7,7 +7,7 @@ export default function Filter({ filter, handleFilter }: { filter: string; handl
 	const [emblaRef] = useEmblaCarousel({ dragFree: true });
 
 	return (
-		<StyledFilter>
+		<StyledFilter data-testid="filter">
 			<StyledGradient></StyledGradient>
 			<StyledEmbla ref={emblaRef}>
 				<StyledEmblaContainer>
