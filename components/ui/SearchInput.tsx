@@ -39,7 +39,7 @@ export default function Search() {
 		<StyledSection>
 			{showCancelButton && (
 				<StyledButton onClick={handleReset} aria-label="Reset search">
-					<Image src={`/images/cancel.svg`} width={20} height={20} alt="" />
+					<Image src={`/images/Cancel.svg`} width={20} height={20} alt="" />
 				</StyledButton>
 			)}
 			<StyledInput type="text" value={searchTerm} onChange={(e) => handleSearch(e.target.value)} placeholder="Search..." />
