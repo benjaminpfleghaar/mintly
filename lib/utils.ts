@@ -35,7 +35,7 @@ export function getFilteredTransactions(transactions: Transactions[], filter: st
 
 // Search transactions based on search query
 export function getSearchedTransactions(transactions: Transactions[], query: string): Transactions[] {
-	return transactions.filter(({ name }) => name.toLocaleLowerCase().includes(query.toLocaleLowerCase()));
+	return transactions.filter(({ description }) => description.toLocaleLowerCase().includes(query.toLocaleLowerCase()));
 }
 
 // Sort transactions by date 2024-09-05 < 2024-09-10

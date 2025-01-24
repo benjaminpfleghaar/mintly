@@ -1,12 +1,12 @@
 import styled from "styled-components";
 import ErrorMessage from "@/components/ui/ErrorMessage";
 
-export default function NameInput({ value, showError }: { value?: string; showError: boolean }) {
+export default function DescriptionInput({ value, showError }: { value?: string; showError: boolean }) {
 	return (
 		<StyledDiv>
-			<StyledLabel htmlFor="name">Name</StyledLabel>
-			<StyledInput $showError={showError} id="name" type="text" name="name" defaultValue={value} placeholder="Please enter a name" aria-describedby={showError ? "name-error" : ""} aria-invalid={showError} />
-			{showError && <ErrorMessage id="name-error" message="Please enter a valid name" />}
+			<StyledLabel htmlFor="description">Description</StyledLabel>
+			<StyledInput $showError={showError} id="description" type="text" name="description" defaultValue={value} placeholder="Please enter a description" aria-describedby={showError ? "description-error" : ""} aria-invalid={showError} />
+			{showError && <ErrorMessage id="description-error" message="Please enter a valid description" />}
 		</StyledDiv>
 	);
 }

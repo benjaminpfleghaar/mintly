@@ -49,17 +49,17 @@ describe("The homepage displays a scrollable list of transactions", () => {
 describe("Each transaction listing includes a category, a name and the amount", () => {
 	const transaction = {
 		id: "1",
-		name: "Whole Mart",
+		description: "Whole Mart",
 		amount: -52.3,
 		category: "Groceries",
 		type: "Expense",
 		date: "2024-09-05",
 	};
 
-	test("Render name (Whole Mart)", () => {
+	test("Render description (Whole Mart)", () => {
 		render(<HorizontalRow {...transaction} />);
-		const name = screen.getByText(transaction.name);
-		expect(name).toBeInTheDocument();
+		const description = screen.getByText(transaction.description);
+		expect(description).toBeInTheDocument();
 	});
 	test("Render category (Groceries)", () => {
 		render(<HorizontalRow {...transaction} />);

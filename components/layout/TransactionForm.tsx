@@ -4,7 +4,6 @@ import styled from "styled-components";
 import { useToast } from "@/states/useToast";
 import { addLeadingZero } from "@/lib/utils";
 import TypeRadio from "@/components/ui/TypeRadio";
-import NameInput from "@/components/ui/NameInput";
 import DateSelect from "@/components/ui/DateSelect";
 import { notFound, useRouter } from "next/navigation";
 import AmountInput from "@/components/ui/AmountInput";
@@ -13,6 +12,7 @@ import SubmitButton from "@/components/ui/SubmitButton";
 import AmountControl from "@/components/ui/AmountControl";
 import { useTransactions } from "@/states/useTransactions";
 import CategorySelect from "@/components/ui/CategorySelect";
+import DescriptionInput from "@/components/ui/DescriptionInput";
 
 export default function TransactionForm({ id, mode }: { id?: string; mode: "create" | "edit" }) {
 	const router = useRouter();
@@ -26,10 +26,10 @@ export default function TransactionForm({ id, mode }: { id?: string; mode: "crea
 		const collectedErrors = [];
 
 		const data = new FormData(event.currentTarget);
-		const { amount, name, category, type, day, month, year } = Object.fromEntries(data);
+		const { amount, description, category, type, day, month, year } = Object.fromEntries(data);
 
 		if (!amount || isNaN(parseFloat(amount as string))) collectedErrors.push("amount");
-		if (!name) collectedErrors.push("name");
+		if (!description) collectedErrors.push("description");
 
 		if (collectedErrors.length !== 0) {
 			setErrors([...collectedErrors]);
@@ -40,7 +40,7 @@ export default function TransactionForm({ id, mode }: { id?: string; mode: "crea
 		const replaceAmount = castingAmount.replace(",", ".");
 
 		const transaction = {
-			name: name as string,
+			description: description as string,
 			type: type as string,
 			id: mode === "create" ? nanoid().toString() : id || "",
 			category: category as string,
@@ -62,13 +62,13 @@ export default function TransactionForm({ id, mode }: { id?: string; mode: "crea
 
 	if (!transaction && mode === "edit") notFound();
 
-	const { name, amount, category, type, date } = transaction || {};
+	const { description, amount, category, type, date } = transaction || {};
 
 	if (mode === "create")
 		return (
 			<StyledForm onSubmit={handleFormSubmit}>
 				<AmountControl showError={errors.includes("amount")} />
-				<NameInput showError={errors.includes("name")} />
+				<DescriptionInput showError={errors.includes("description")} />
 				<CategorySelect />
 				<TypeRadio />
 				<DateSelect />
@@ -82,7 +82,7 @@ export default function TransactionForm({ id, mode }: { id?: string; mode: "crea
 		return (
 			<StyledForm onSubmit={handleFormSubmit}>
 				<AmountInput value={amount} showError={errors.includes("amount")} />
-				<NameInput value={name} showError={errors.includes("name")} />
+				<DescriptionInput value={description} showError={errors.includes("description")} />
 				<CategorySelect value={category} />
 				<TypeRadio value={type} />
 				<DateSelect value={date} />

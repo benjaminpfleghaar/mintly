@@ -1,7 +1,7 @@
 export const transactions = [
 	{
 		id: "1",
-		name: "Whole Mart",
+		description: "Whole Mart",
 		amount: -52.3,
 		category: "Groceries",
 		type: "Expense",
@@ -9,7 +9,7 @@ export const transactions = [
 	},
 	{
 		id: "2",
-		name: "Sunset Apartments",
+		description: "Sunset Apartments",
 		amount: -1200,
 		category: "Rent",
 		type: "Expense",
@@ -17,7 +17,7 @@ export const transactions = [
 	},
 	{
 		id: "3",
-		name: "Tech Corp Salary",
+		description: "Tech Corp Salary",
 		amount: 1500,
 		category: "Salary",
 		type: "Income",
@@ -25,7 +25,7 @@ export const transactions = [
 	},
 	{
 		id: "4",
-		name: "Power Utilities",
+		description: "Power Utilities",
 		amount: -80.5,
 		category: "Utilities",
 		type: "Expense",
@@ -33,7 +33,7 @@ export const transactions = [
 	},
 	{
 		id: "5",
-		name: "City Transit Pass",
+		description: "City Transit Pass",
 		amount: -25,
 		category: "Transportation",
 		type: "Expense",
@@ -41,7 +41,7 @@ export const transactions = [
 	},
 	{
 		id: "6",
-		name: "Pure Fitness Gym",
+		description: "Pure Fitness Gym",
 		amount: -45,
 		category: "Health",
 		type: "Expense",
@@ -49,7 +49,7 @@ export const transactions = [
 	},
 	{
 		id: "7",
-		name: "Bright Investments",
+		description: "Bright Investments",
 		amount: 300,
 		category: "Investment",
 		type: "Income",
@@ -57,7 +57,7 @@ export const transactions = [
 	},
 	{
 		id: "8",
-		name: "Cafe Latte",
+		description: "Cafe Latte",
 		amount: -12.5,
 		category: "Restaurants",
 		type: "Expense",
@@ -65,7 +65,7 @@ export const transactions = [
 	},
 	{
 		id: "9",
-		name: "Life Insurance",
+		description: "Life Insurance",
 		amount: -200,
 		category: "Insurance",
 		type: "Expense",
@@ -73,7 +73,7 @@ export const transactions = [
 	},
 	{
 		id: "10",
-		name: "Health First Clinic",
+		description: "Health First Clinic",
 		amount: -150,
 		category: "Health",
 		type: "Expense",
@@ -81,7 +81,7 @@ export const transactions = [
 	},
 	{
 		id: "11",
-		name: "Downtown Bistro",
+		description: "Downtown Bistro",
 		amount: -60,
 		category: "Restaurants",
 		type: "Expense",
@@ -89,7 +89,7 @@ export const transactions = [
 	},
 	{
 		id: "12",
-		name: "City University",
+		description: "City University",
 		amount: -500,
 		category: "Education",
 		type: "Expense",
@@ -97,7 +97,7 @@ export const transactions = [
 	},
 	{
 		id: "13",
-		name: "Savings Deposit",
+		description: "Savings Deposit",
 		amount: 400,
 		category: "Savings",
 		type: "Income",
@@ -105,7 +105,7 @@ export const transactions = [
 	},
 	{
 		id: "14",
-		name: "Grocery Plaza",
+		description: "Grocery Plaza",
 		amount: -35.75,
 		category: "Groceries",
 		type: "Expense",
@@ -113,7 +113,7 @@ export const transactions = [
 	},
 	{
 		id: "15",
-		name: "Book Haven",
+		description: "Book Haven",
 		amount: -75,
 		category: "Education",
 		type: "Expense",
@@ -121,7 +121,7 @@ export const transactions = [
 	},
 	{
 		id: "16",
-		name: "Sunnyday Insurance",
+		description: "Sunnyday Insurance",
 		amount: -125,
 		category: "Insurance",
 		type: "Expense",
@@ -129,7 +129,7 @@ export const transactions = [
 	},
 	{
 		id: "17",
-		name: "Green Thumb Nursery",
+		description: "Green Thumb Nursery",
 		amount: -50,
 		category: "Miscellaneous",
 		type: "Expense",
@@ -137,7 +137,7 @@ export const transactions = [
 	},
 	{
 		id: "18",
-		name: "Metro Car Service",
+		description: "Metro Car Service",
 		amount: -75,
 		category: "Transportation",
 		type: "Expense",
@@ -145,7 +145,7 @@ export const transactions = [
 	},
 	{
 		id: "19",
-		name: "Movie Palace",
+		description: "Movie Palace",
 		amount: -20,
 		category: "Entertainment",
 		type: "Expense",
@@ -153,7 +153,7 @@ export const transactions = [
 	},
 	{
 		id: "20",
-		name: "Fresh Fruits Market",
+		description: "Fresh Fruits Market",
 		amount: -55,
 		category: "Groceries",
 		type: "Expense",
@@ -161,7 +161,7 @@ export const transactions = [
 	},
 	{
 		id: "21",
-		name: "Downtown Diner",
+		description: "Downtown Diner",
 		amount: -47.2,
 		category: "Restaurants",
 		type: "Expense",
@@ -169,7 +169,7 @@ export const transactions = [
 	},
 	{
 		id: "22",
-		name: "Quick Stop Groceries",
+		description: "Quick Stop Groceries",
 		amount: -30,
 		category: "Groceries",
 		type: "Expense",

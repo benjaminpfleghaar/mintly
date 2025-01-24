@@ -34,12 +34,12 @@ export default function TransactionDetailsPage({ id }: { id: string }) {
 	if (!transaction && toggleDelete) return null;
 	if (!transaction) notFound();
 
-	const { name, amount, category, type, date } = transaction;
+	const { description, amount, category, type, date } = transaction;
 
 	return (
 		<>
 			{showToast && <ToastMessage />}
-			<Header title={name} iconOnLeftSide={iconOnLeftSide} iconOnRightSide={iconOnRightSide} />
+			<Header title={description} iconOnLeftSide={iconOnLeftSide} iconOnRightSide={iconOnRightSide} />
 			<StyledMain>
 				<StyledSection>
 					<StyledHeadline>Amount</StyledHeadline>

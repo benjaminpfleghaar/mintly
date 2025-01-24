@@ -4,11 +4,11 @@ import Icon from "@/components/ui/Icon";
 import { formatAmount } from "@/lib/utils";
 import { Transactions } from "@/types/Transactions";
 
-export default function HorizontalRow({ id, category, name, type, amount }: Transactions) {
+export default function HorizontalRow({ id, category, description, type, amount }: Transactions) {
 	return (
-		<StyledLink href={`/${id}`} aria-label={`Got to ${name} transaction`}>
+		<StyledLink href={`/${id}`} aria-label={`Got to ${description} transaction`}>
 			<Icon icon={category} />
-			<StyledParagraph>{name}</StyledParagraph>
+			<StyledParagraph>{description}</StyledParagraph>
 			{type === "Expense" ? <StyledData value={amount}>{formatAmount(amount)}</StyledData> : <StyledDataHighlighted value={amount}>{formatAmount(amount)}</StyledDataHighlighted>}
 		</StyledLink>
 	);

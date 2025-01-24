@@ -38,9 +38,9 @@ describe("The form includes labeled, mandatory fields", () => {
 		expect(input).toBeInTheDocument();
 	});
 
-	test("Render name field", () => {
+	test("Render description field", () => {
 		render(<TransactionForm mode="create" />);
-		const input = screen.getByLabelText("Name");
+		const input = screen.getByLabelText("Description");
 		expect(input).toBeInTheDocument();
 	});
 
@@ -81,7 +81,7 @@ describe("Form submission is blocked if any required field is empty, and validat
 		expect(button).toBeInTheDocument();
 
 		await user.click(button);
-		expect(screen.getByTestId("name-error")).toBeInTheDocument();
+		expect(screen.getByTestId("description-error")).toBeInTheDocument();
 		expect(screen.getByTestId("amount-error")).toBeInTheDocument();
 	});
 });
@@ -102,8 +102,8 @@ describe("After form submission, the user is redirected back to the transactions
 		const amount = screen.getByLabelText("Amount");
 		await user.type(amount, "1");
 
-		const name = screen.getByLabelText("Name");
-		await user.type(name, "abc");
+		const description = screen.getByLabelText("Description");
+		await user.type(description, "abc");
 
 		await user.click(button);
 		expect(push).toHaveBeenCalledWith("/");
@@ -130,8 +130,8 @@ describe("The form is pre-filled with the transaction's existing details", () =>
 
 	test("Name is pre-filled", () => {
 		render(<TransactionForm mode="edit" id="1" />);
-		const name = screen.getByDisplayValue("Whole Mart");
-		expect(name).toBeInTheDocument();
+		const description = screen.getByDisplayValue("Whole Mart");
+		expect(description).toBeInTheDocument();
 	});
 
 	test("Category is pre-filled", () => {

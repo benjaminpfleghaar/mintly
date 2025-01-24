@@ -11,11 +11,4 @@ const StyledButton = styled.button`
 	padding: 0 var(--spacing-24);
 	border-radius: var(--spacing-8);
 	background-color: var(--color-gray-0);
-
-	/* &:disabled {
-		cursor: default;
-		color: var(--color-gray-50);
-		background-color: var(--color-gray-90);
-		border: 1px solid var(--color-gray-80);
-	} */
 `;

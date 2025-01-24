@@ -20,7 +20,7 @@ export const useTransactions = create<TransactionState>()((set) => ({
 					? {
 							...transaction,
 							amount: editTransaction.amount,
-							name: editTransaction.name,
+							description: editTransaction.description,
 							category: editTransaction.category,
 							type: editTransaction.type,
 							date: editTransaction.date,
