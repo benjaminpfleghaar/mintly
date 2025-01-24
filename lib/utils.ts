@@ -10,6 +10,11 @@ export function formatDate(date: string): string {
 	return `${days[newDate.getDay()]}, ${newDate.getDate()} ${months[newDate.getMonth()]} ${newDate.getFullYear()}`;
 }
 
+// add leading zero 1 -> 01
+export function addLeadingZero(input: string) {
+	return input.length === 1 ? "0" + input : input;
+}
+
 // -99.5 -> -$99.50
 export function formatAmount(amount: number): string {
 	return new Intl.NumberFormat("en-US", {

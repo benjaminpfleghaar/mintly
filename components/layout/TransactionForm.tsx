@@ -2,6 +2,7 @@ import { nanoid } from "nanoid";
 import { useState } from "react";
 import styled from "styled-components";
 import { useToast } from "@/states/useToast";
+import { addLeadingZero } from "@/lib/utils";
 import TypeRadio from "@/components/ui/TypeRadio";
 import NameInput from "@/components/ui/NameInput";
 import DateSelect from "@/components/ui/DateSelect";
@@ -43,7 +44,7 @@ export default function TransactionForm({ id, mode }: { id?: string; mode: "crea
 			type: type as string,
 			id: mode === "create" ? nanoid().toString() : id || "",
 			category: category as string,
-			date: `${year}-${month}-${day}`,
+			date: `${year}-${addLeadingZero(month as string)}-${addLeadingZero(day as string)}`,
 			amount: parseFloat((type === "Expense" ? -replaceAmount : replaceAmount) as string),
 		};
 
