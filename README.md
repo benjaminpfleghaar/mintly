@@ -7,8 +7,8 @@ expense and savings management. Mintly supports recording, editing, deleting, an
 
 ## Design
 
-The complete styleguide including fonts, colors, icons and general design principles can be found in this Figma
-file: [Styleguide](https://www.figma.com/design/DimQ0kYK6oqva5Zy1L4Hzv/Mintly-Styleguide?node-id=2062-350)
+The complete styleguide can be found
+here: [Styleguide](https://www.figma.com/design/DimQ0kYK6oqva5Zy1L4Hzv/Mintly-Styleguide?node-id=2062-350)
 
 ## Features
 
