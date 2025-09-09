@@ -1,7 +1,7 @@
 # Mintly
 
 A **Next.js** application built as a feature-driven learning project, focused on mastering CRUD operations through
-expense and savings management. The app supports recording, editing, deleting, and filtering transactions.
+expense and savings management. Mintly supports recording, editing, deleting, and filtering transactions.
 
 ![Mockup](./assets/mockup.jpg)
 
