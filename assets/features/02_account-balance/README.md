@@ -8,16 +8,16 @@ so that **I can quickly understand my overall financial situation.**
 
 ## Assets
 
-|        Wireframe        |        Layout        |        Components        |
-| :---------------------: | :------------------: | :----------------------: |
-| [Link](./wireframe.png) | [Link](./layout.png) | [Link](./components.png) |
+- [Wireframe](./wireframe.png)
+- [Layout](./layout.png)
+- [Components](./components.png)
 
 ## Acceptance Criteria
 
--   The account balance is displayed prominently at the top of the transaction list
--   The balance reflects the net sum of all income and expense transactions
--   The balance updates instantly when transactions are added, edited, or deleted
+- The account balance is displayed prominently at the top of the transaction list
+- The balance reflects the net sum of all income and expense transactions
+- The balance updates instantly when transactions are added, edited, or deleted
 
 ## Edge Cases
 
--   Display the balance as zero if no transactions are recorded
+- Display the balance as zero if no transactions are recorded

@@ -1,56 +1,60 @@
 # Mintly
 
-A **Next.js** application built as a feature-driven learning project, focused on mastering CRUD operations through
-expense and savings management. Mintly supports recording, editing, deleting, and filtering transactions.
+Next.js app for practicing CRUD operations while managing expenses and savings, allowing users to record, edit, delete,
+and filter transactions.
 
 ![Mockup](./assets/mockup.jpg)
 
-## Design
-
-The complete styleguide can be found
-here: [Styleguide](https://www.figma.com/design/DimQ0kYK6oqva5Zy1L4Hzv/Mintly-Styleguide?node-id=2062-350)
-
 ## Features
 
-| Id | User Story                                                                |                           Wireframe                            |                           Layout                            |                           Components                            |
-|:--:|---------------------------------------------------------------------------|:--------------------------------------------------------------:|:-----------------------------------------------------------:|:---------------------------------------------------------------:|
-| 1  | [Transactions List](./assets/features/01_transactions-list/README.md)     |  [Link](./assets/features/01_transactions-list/wireframe.png)  |  [Link](./assets/features/01_transactions-list/layout.png)  |  [Link](./assets/features/01_transactions-list/components.png)  |
-| 2  | [Account Balance](./assets/features/02_account-balance/README.md)         |   [Link](./assets/features/02_account-balance/wireframe.png)   |   [Link](./assets/features/02_account-balance/layout.png)   |   [Link](./assets/features/02_account-balance/components.png)   |
-| 3  | [Create Transaction](./assets/features/03_create-transaction/README.md)   | [Link](./assets/features/03_create-transaction/wireframe.png)  | [Link](./assets/features/03_create-transaction/layout.png)  | [Link](./assets/features/03_create-transaction/components.png)  |
-| 4  | [Transaction Details](./assets/features/04_transaction-details/README.md) | [Link](./assets/features/04_transaction-details/wireframe.png) | [Link](./assets/features/04_transaction-details/layout.png) | [Link](./assets/features/04_transaction-details/components.png) |
-| 5  | [Delete Transaction](./assets/features/05_delete-transaction/README.md)   | [Link](./assets/features/05_delete-transaction/wireframe.png)  | [Link](./assets/features/05_delete-transaction/layout.png)  | [Link](./assets/features/05_delete-transaction/components.png)  |
-| 6  | [Update Transaction](./assets/features/06_update-transaction/README.md)   | [Link](./assets/features/06_update-transaction/wireframe.png)  | [Link](./assets/features/06_update-transaction/layout.png)  | [Link](./assets/features/06_update-transaction/components.png)  |
-| 7  | [Search Transactions](./assets/features/07_search-transactions/README.md) | [Link](./assets/features/07_search-transactions/wireframe.png) | [Link](./assets/features/07_search-transactions/layout.png) | [Link](./assets/features/07_search-transactions/components.png) |
-| 8  | [Filter Transactions](./assets/features/08_filter-transactions/README.md) | [Link](./assets/features/08_filter-transactions/wireframe.png) | [Link](./assets/features/08_filter-transactions/layout.png) | [Link](./assets/features/08_filter-transactions/components.png) |
+- **Transactions List:** Scroll through all transactions on the
+  homepage ([Ticket](./assets/features/01_transactions-list/README.md))
+- **Account Balance:** Display the current account balance above the
+  list ([Ticket](./assets/features/02_account-balance/README.md))
+- **Create Transaction:** Add new transactions using a
+  form ([Ticket](./assets/features/03_create-transaction/README.md))
+- **Transaction Details:** View complete details of a
+  transaction ([Ticket](./assets/features/04_transaction-details/README.md))
+- **Delete Transaction:** Remove a transaction after a confirmation
+  prompt ([Ticket](./assets/features/05_delete-transaction/README.md))
+- **Update Transaction:** Edit existing transaction data ([Ticket](./assets/features/06_update-transaction/README.md))
+- **Search Transactions:** Find transactions quickly with a search
+  field ([Ticket](./assets/features/07_search-transactions/README.md))
+- **Filter Transactions:** Filter transactions using a scrollable
+  slider ([Ticket](./assets/features/08_filter-transactions/README.md))
 
 ## Technologies
 
-This project is built with:
-
-- **Framework**: [Next.js](https://nextjs.org)
-- **Styling**: [Styled-Components](https://styled-components.com/)
-- **State Management**: [Zustand](https://zustand-demo.pmnd.rs/)
-- **Slider**: [Embla Carousel](https://www.embla-carousel.com/)
-- **Icons**: [Google](https://fonts.google.com/icons)
-- **Testing**: [Jest](https://jestjs.io/)
+- **Framework:** [Next.js](https://nextjs.org)
+- **Design:** [Figma Styleguide](https://www.figma.com/design/DimQ0kYK6oqva5Zy1L4Hzv/Mintly-Styleguide?node-id=2062-350)
+- **Styling:** [Styled Components](https://styled-components.com/)
+- **State Management:** [Zustand](https://zustand-demo.pmnd.rs/)
+- **Slider:** [Embla Carousel](https://www.embla-carousel.com/)
+- **Icons:** [Google](https://fonts.google.com/icons)
+- **Testing:** [Jest](https://jestjs.io/)
 
 ## Getting Started
 
-Ensure you have **Node.js** installed.
+### Prerequisites
+
+- [Node.js](https://nodejs.org) installed
 
 ### Installation
 
 1. Clone the repository:
-   ```bash
-   git clone https://github.com/benjaminpfleghaar/mintly.git
-   ```
+
+    ```bash
+    git clone https://github.com/benjaminpfleghaar/mintly.git
+    ```
 
 2. Install dependencies:
-   ```bash
-   npm install
-   ```
 
-3. Run the application:
-   ```bash
-   npm run dev
-   ```
+    ```bash
+    npm install
+    ```
+
+3. Run the development server:
+
+    ```bash
+    npm run dev
+    ```
