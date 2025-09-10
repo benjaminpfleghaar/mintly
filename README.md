@@ -1,6 +1,6 @@
 # Mintly
 
-Next.js app for practicing CRUD operations while managing expenses and savings, allowing users to record, edit, delete,
+Next.js app for practicing CRUD operations while managing expenses and savings, allowing users to record, edit, delete
 and filter transactions.
 
 ![Mockup](./assets/mockup.jpg)
